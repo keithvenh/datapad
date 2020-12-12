@@ -1,5 +1,10 @@
 <h1>Characters#show</h1>
 <p><%= @character.name %></p>
+<% if @character.character_career %>
+    <p>(<%= link_to @character.character_career.career.name, edit_character_character_career_path(@character, @character.character_career) %>)</p>
+<% else %>
+    <p><%= link_to "Add a Career", new_character_character_career_path(@character) %></p>
+<% end %>
 <% @character.character_skills.each do |character_skill| %>
     <p><%= link_to character_skill.skill.name, edit_character_character_skill_path(@character, character_skill) %></p>
 <% end %>

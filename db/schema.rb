@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_12_002557) do
+ActiveRecord::Schema.define(version: 2020_12_12_183325) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "game"
+    t.string "title"
+    t.string "subtitle"
+    t.string "type_of"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "career_skills", force: :cascade do |t|
+    t.integer "career_id", null: false
+    t.integer "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["career_id"], name: "index_career_skills_on_career_id"
+    t.index ["skill_id"], name: "index_career_skills_on_skill_id"
+  end
+
+  create_table "careers", force: :cascade do |t|
+    t.string "name"
+    t.integer "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_careers_on_book_id"
+  end
+
+  create_table "character_careers", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "career_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["career_id"], name: "index_character_careers_on_career_id"
+    t.index ["character_id"], name: "index_character_careers_on_character_id"
+  end
 
   create_table "character_skills", force: :cascade do |t|
     t.integer "character_id", null: false
@@ -65,6 +100,11 @@ ActiveRecord::Schema.define(version: 2020_12_12_002557) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "career_skills", "careers"
+  add_foreign_key "career_skills", "skills"
+  add_foreign_key "careers", "books"
+  add_foreign_key "character_careers", "careers"
+  add_foreign_key "character_careers", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "character_skills", "skills"
 end
