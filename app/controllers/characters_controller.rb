@@ -11,8 +11,10 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     if @character.save!
-      redirect_to @character
+      flash[:notice] = "You have successfully created #{@character.name}. Add skills to #{@character.name}"
+      redirect_to new_character_character_skill_path(@character)
     else
+      flash.now[:alert] = "Beep Boop. Something Went Wrong."
       render 'new'
     end
   end
@@ -24,8 +26,10 @@ class CharactersController < ApplicationController
   def update
     @character = find_character
     if @character.update_attributes(character_params)
+      flash[:notice] = "You have successfully updated #{@character.name}."
       redirect_to @character
     else
+      flash.now[:alert] = "Beep Boop. Something Went Wrong."
       render 'edit'
     end
   end
@@ -35,14 +39,16 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    find_character.destroy
+    @character = find_character
+    flash[:alert] = "You have successfully deleted #{@character.name}."
+    @character.destroy
     redirect_to characters_url
   end
 
   private
   
     def character_params
-      params.require(:character).permit(:name, :type_of, :wounds, :strain, :soak, :def_ranged, :def_melee, :brawn, :agility, :intellect, :cunning, :willpower, :presence, :force_rating)
+      params.require(:character).permit(:name, :type_of, :wounds, :strain, :soak, :def_ranged, :def_melee, :brawn, :agility, :intellect, :cunning, :willpower, :presence, :force_rating, :species)
     end
 
     def find_character

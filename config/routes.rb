@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/index'
 
-  resources :characters
+  resources :characters do
+    resources :character_skills, only: [:new, :create, :edit, :update, :destroy]
+  end
 end

@@ -15,6 +15,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.integer :willpower
       t.integer :presence
       t.integer :force_rating
+      t.string :species
 
       t.timestamps
     end

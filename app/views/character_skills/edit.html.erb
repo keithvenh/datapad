@@ -1,0 +1,27 @@
+<%= form_for [@character, @character_skill] do |f| %>
+
+    <%= f.hidden_field :character_id, value: @character.id %>
+
+    <div class="form-field">
+        <%= f.collection_select(:skill_id, @skills, :id, :name, {prompt: ""}, {class: "form-input select"}) %>
+        <p class="form-label">Skill</p>
+    </div>
+
+    <div class="form-field">
+        <%= f.number_field :ranks, class: "form-input integer" %>
+        <p class="form-label">Ranks</p>
+    </div>
+
+    <div class="form-field">
+        <div class="checkbox">
+        <%= f.check_box :career,  class: "boolean"%>
+        <p class="form-label">Career</p>
+        </div>
+    </div>
+
+    <%= f.submit "Submit", class: "button form-button success" %>
+
+    <%= link_to [@character, @character_skill], method: :delete do %>
+        <div class="button danger sw">Delete Skill</div>
+    <% end %>
+<% end %>

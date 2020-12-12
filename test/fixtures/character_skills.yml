@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  character: one
+  skill: one
+  career: false
+  ranks: 1
+
+two:
+  character: two
+  skill: two
+  career: false
+  ranks: 1
