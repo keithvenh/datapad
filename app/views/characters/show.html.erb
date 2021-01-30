@@ -11,7 +11,7 @@
 <% end %>
 
 <% @character.character_skills.each do |character_skill| %>
-    <p><%= link_to character_skill.skill.name, edit_character_character_skill_path(@character, character_skill) %></p>
+    <p><%= character_skill.career ? "*" : '' %><%= link_to character_skill.skill.name, edit_character_character_skill_path(@character, character_skill) %></p>
 <% end %>
 <p><%= link_to "Edit Character", edit_character_path(@character) %></p>
 <p><%= link_to "Add a Skill", new_character_character_skill_path(@character) %></p>

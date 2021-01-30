@@ -12,7 +12,8 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
     if @character.save!
       flash[:notice] = "You have successfully created #{@character.name}. Add skills to #{@character.name}"
-      redirect_to new_character_character_skill_path(@character)
+      create_character_skills(@character)
+      redirect_to new_character_character_career_path(@character)
     else
       flash.now[:alert] = "Beep Boop. Something Went Wrong."
       render 'new'
@@ -53,5 +54,12 @@ class CharactersController < ApplicationController
 
     def find_character
       Character.find(params[:id])
+    end
+
+    def create_character_skills(character)
+      skills = Skill.all
+      skills.each do |skill|
+        CharacterSkill.create!(character: character, skill: skill, career: false, ranks: 0)
+      end
     end
 end
