@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_12_183325) do
+ActiveRecord::Schema.define(version: 2021_01_29_235317) do
 
   create_table "books", force: :cascade do |t|
     t.string "game"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 2020_12_12_183325) do
     t.index ["skill_id"], name: "index_character_skills_on_skill_id"
   end
 
+  create_table "character_specializations", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "specialization_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_specializations_on_character_id"
+    t.index ["specialization_id"], name: "index_character_specializations_on_specialization_id"
+  end
+
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "type_of"
@@ -86,6 +95,25 @@ ActiveRecord::Schema.define(version: 2020_12_12_183325) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "specialization_skills", force: :cascade do |t|
+    t.integer "specialization_id", null: false
+    t.integer "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_specialization_skills_on_skill_id"
+    t.index ["specialization_id"], name: "index_specialization_skills_on_specialization_id"
+  end
+
+  create_table "specializations", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.string "name"
+    t.integer "career_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_specializations_on_book_id"
+    t.index ["career_id"], name: "index_specializations_on_career_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -107,4 +135,10 @@ ActiveRecord::Schema.define(version: 2020_12_12_183325) do
   add_foreign_key "character_careers", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "character_skills", "skills"
+  add_foreign_key "character_specializations", "characters"
+  add_foreign_key "character_specializations", "specializations"
+  add_foreign_key "specialization_skills", "skills"
+  add_foreign_key "specialization_skills", "specializations"
+  add_foreign_key "specializations", "books"
+  add_foreign_key "specializations", "careers"
 end

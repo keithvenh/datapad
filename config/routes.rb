@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :characters do
     resources :character_skills, only: [:new, :create, :edit, :update, :destroy]
     resources :character_careers, only: [:new, :create, :edit, :update, :destroy]
+    resources :character_specializations, only: [:new, :create, :edit, :update, :destroy]
   end
 end

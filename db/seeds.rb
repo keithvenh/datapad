@@ -56,19 +56,44 @@ careers.each do |row|
         Skill.find_by(name: row['Skill7']),
         Skill.find_by(name: row['Skill8']),
     ]
-    puts skills
     career = Career.new(
         name: row['Career'],
         book: book
     )
-    puts career
     career.save!
 
     skills.each do |skill|
-        puts skill
         if skill
             CareerSkill.create!(
                 career: career,
+                skill: skill
+            )
+        end
+    end
+end
+
+specializations = CSV.parse(File.read('db/specializations.csv'), headers: true )
+
+specializations.each do |row|
+    book = Book.where(game: row['Game'], title: 'Core Rulebook').first
+    career = Career.where(name: row['Career']).first
+    skills = [
+        Skill.find_by(name: row['Skill1']),
+        Skill.find_by(name: row['Skill2']),
+        Skill.find_by(name: row['Skill3']),
+        Skill.find_by(name: row['Skill4'])
+    ]
+    specialization = Specialization.new(
+        name: row['Specialization'],
+        book: book,
+        career: career
+    )
+    specialization.save!
+
+    skills.each do |skill|
+        if skill
+            SpecializationSkill.create!(
+                specialization: specialization,
                 skill: skill
             )
         end

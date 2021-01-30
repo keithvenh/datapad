@@ -5,6 +5,11 @@
 <% else %>
     <p><%= link_to "Add a Career", new_character_character_career_path(@character) %></p>
 <% end %>
+
+<% @character.character_specializations.each do |character_specialization| %>
+    <p>[<%= link_to character_specialization.specialization.name, edit_character_character_specialization_path(@character, character_specialization) %>]</p>
+<% end %>
+
 <% @character.character_skills.each do |character_skill| %>
     <p><%= link_to character_skill.skill.name, edit_character_character_skill_path(@character, character_skill) %></p>
 <% end %>
