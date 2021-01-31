@@ -1,0 +1,55 @@
+<nav class="navbar">
+
+    <ul class="nav-links">
+
+        <li class="<%= controller_name == 'pages' && action_name == 'index' ? 'active' : '' %> link">
+            <%= link_to root_url do %>
+                <i class="fas fa-home"></i>
+            <% end %>
+        </li>
+
+        <li class="<%= controller_name == 'characters' && action_name == 'index' ? 'active' : '' %> link">
+            <%= link_to characters_path do %>
+                <i class="fas fa-users"></i>
+            <% end %>
+        </li>
+
+        <li class="disabled <%= controller_name == 'vehicles' && action_name == 'index' ? 'active' : '' %> link">
+            <%= link_to root_url do %>
+                <i class="fas fa-fighter-jet"></i>
+            <% end %>
+        </li>
+
+        <li class="disabled <%= controller_name == 'planets' && action_name == 'index' ? 'active' : '' %> link">
+            <%= link_to root_url do %>
+                <i class="fas fa-globe"></i>
+            <% end %>
+        </li>
+
+        <li class="disabled <%= controller_name == 'pages' && action_name == 'gear' ? 'active' : '' %> link">
+            <%= link_to root_url do %>
+                <i class="fas fa-campground"></i>
+            <% end %>
+        </li>
+
+        <li class="disabled <%= controller_name == 'contacts' && action_name == 'index' ? 'active' : '' %> link">
+            <%= link_to root_url do %>
+                <i class="fas fa-people-arrows"></i>
+            <% end%>
+        </li>
+
+        <li class="disabled <%= controller_name == 'pages' && action_name == 'store' ? 'active' : '' %> link">
+            <%= link_to root_url do %>
+                <i class="fas fa-cash-register"></i>
+            <% end %>
+        </li>
+
+        <li class="<%= controller_name == 'registrations' && action_name == 'edit' ? 'active' : '' %> link">
+            <%= link_to edit_user_registration_path(@user) do %>
+                <i class="fas fa-cog"></i>
+            <% end %>
+        </li>
+
+    </ul>
+
+</nav>

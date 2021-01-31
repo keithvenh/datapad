@@ -1,0 +1,19 @@
+@import "colors";
+
+.organization-header {
+    border: 2px solid $white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    margin: 4px;
+    padding: 2px;
+    .profile-image {
+        margin-right: 4px;
+    }
+}

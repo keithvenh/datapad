@@ -3,12 +3,16 @@
 @import "colors";
 @import "fonts";
 @import "datapad";
-
-
+@import "nav";
+@import "home";
 
 
 
 /* ===== SITE-WIDE STYLES ===== */
+
+html {
+    height: -webkit-fill-available;
+}
 
 body {
     background-color: $black;
@@ -25,18 +29,37 @@ body {
     min-height: -webkit-fill-available;
 }
 
-html {
-    height: -webkit-fill-available;
-}
-
 ::-webkit-scrollbar {
     display: none;
+}
+
+section {
+    margin: 4px 0;
+    padding: 4px;
+    border: 2px solid $white;
 }
 
 a {
     color: $white;
     text-decoration: none;
-    &:hover {
-        border-bottom: 2px dotted $white;
-    }
+}
+
+.integer, .sw {
+    font-family: $aurebesh;
+}
+
+.columns {
+    display: flex;
+}
+
+.col1, .col2 {
+    border: 1px solid $white;
+    margin: 2px;
+    padding: 2px;
+}
+
+.profile-image {
+    max-height: 150px;
+    max-width: 150px;
+    float: left;
 }

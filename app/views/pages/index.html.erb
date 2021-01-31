@@ -1,3 +1,46 @@
+<section>
+
+    <div class="organization-header">
+
+        <p class="org-name">
+            Organization
+        </p>
+
+        <p class="integer org-credits">
+            $ <%= number_with_delimiter(4778, delimiter: ',') %>
+        </p>
+
+    </div>
+
+    <div class="columns">
+
+        <div class="col1">
+        
+            <% @player_characters.each do |pc| %>
+                <% image = pc.name.split(" ").join("_").downcase %>
+                <p class="profile">
+                    <%= link_to character_path(pc) do %>
+                        <%= image_tag("characters/#{image}.jpg", class: "profile-image") %>
+                        <%= pc.name %>
+                        <br>
+                        <% if pc.name == "Pax Kal-Yuri" || pc.name == "Ajairu Kogiti" %>
+                            Co-Founder
+                        <% end %>
+                    <% end %>
+                </p>
+
+            <% end %>
+
+        </div>
+
+        <div class="col2">
+
+        </div>
+
+    </div>
+
+</section>
+
 <h2>Pages Index</h2>
 <h3><%= @user.username %></h3>
 <p><%= link_to "New Character", new_character_path %></p>
