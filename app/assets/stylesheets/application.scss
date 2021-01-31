@@ -1,0 +1,42 @@
+// require_self
+@import "reset";
+@import "colors";
+@import "fonts";
+@import "datapad";
+
+
+
+
+
+/* ===== SITE-WIDE STYLES ===== */
+
+body {
+    background-color: $black;
+    background-image: url('stars.png');
+    background-repeat: repeat;
+    color: $white;
+    font-family: $primary;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    color: $white;
+    text-decoration: none;
+    &:hover {
+        border-bottom: 2px dotted $white;
+    }
+}
