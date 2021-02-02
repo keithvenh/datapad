@@ -63,6 +63,15 @@ a {
     padding: 2px;
 }
 
+.column-header {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    border: 1px solid $white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
 .fa-plus {
     color: $green;
 }

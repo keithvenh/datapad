@@ -4,6 +4,7 @@ class CreateSkills < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :attr
       t.text :description
+      t.string :type_of
 
       t.timestamps
     end

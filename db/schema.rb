@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2021_01_29_235317) do
     t.string "name"
     t.string "attr"
     t.text "description"
+    t.string "type_of"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,3 +1,47 @@
+<section>
+
+    <div class="section-header">
+        <p class="sw"><%= @character.name %></p>
+    </div>
+
+    <div class="columns">
+
+        <div class="col1">
+
+            <div class="column-header">
+                <p>Skills</p>
+            </div>
+
+            <div class="skills-list">
+
+                <% category = '' %>
+                <% @character.skills.order('type_of').order('name').each do |skill| %>
+
+                    <% character_skill = @character.character_skills.find_by(skill: skill) %>
+                    <% if skill.type_of != category %>
+
+                        <% category = skill.type_of %>
+                        <p class="sw segmentor"><%= category %></p>
+
+                    <% end %>
+
+                    <div class="skill <%= skill.attr.downcase %>">
+                        <p class="skill-name">
+                            <%= character_skill.career ? "&#9865".html_safe : '' %>
+                            <%= link_to skill.name, edit_character_character_skill_path(@character, skill)%>
+                        </p>
+                        <%= display_level(character_skill.ranks) %>
+                    </div>
+
+                <% end %>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 <h1>Characters#show</h1>
 <p><%= @character.name %></p>
 <% if @character.character_career %>

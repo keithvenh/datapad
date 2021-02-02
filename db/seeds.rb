@@ -27,7 +27,8 @@ skills.each do |row|
     Skill.create!(
         name: row['name'],
         attr: row['attribute'],
-        description: row['description']
+        description: row['description'],
+        type_of: row['type_of']
     )
 end
 
