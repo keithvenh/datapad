@@ -5,8 +5,7 @@
 @import "datapad";
 @import "nav";
 @import "home";
-
-
+@import "forms";
 
 /* ===== SITE-WIDE STYLES ===== */
 
@@ -62,8 +61,6 @@ a {
     padding: 2px;
 }
 
-.profile-image {
-    max-height: 150px;
-    max-width: 150px;
-    float: left;
+.fa-plus {
+    color: $green;
 }

@@ -1,29 +1,40 @@
-<h2>Sign up</h2>
+<section class="form">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="form-header">
+        <p class="sw">New User</p>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="form-field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-input text' %>
+        <p class="form-label">Email</p>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      <div class="form-field">
+        <%= f.text_field :username, class: 'form-input text' %>
+        <p class="form-label">Username</p>
+      </div>
 
-<%= render "devise/shared/links" %>
+      <div class="form-field">
+        <%= f.text_field :credits, class: 'form-input integer' %>
+        <p class="form-label">Credits</p>
+      </div>
+
+      <div class="form-field">
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-input text' %>
+        <p class="form-label">Password</p>
+      </div>
+
+      <div class="form-field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input text" %>
+        <p class="form-label">Password Confirmation</p>
+      </div>
+
+      <%= f.submit "Update", class: "button form-button success" %>
+
+    <% end %>
+
+</section>
