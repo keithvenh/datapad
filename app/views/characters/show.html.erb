@@ -4,12 +4,85 @@
         <p class="sw"><%= @character.name %></p>
     </div>
 
+    <div class= "profile">
+
+        <div class="profile-image">
+
+            <%= image_tag("characters/#{@character.name.split(' ').join('_').downcase}", class: "profile-image") %>
+
+        </div>
+
+        <div class="profile-details">
+
+            <p class="sw profile-name"><%= @character.name %></p>
+
+            <p class="profile-position">
+                <% if @character.name == "Pax Kal-Yuri" || @character.name == "Ajairu Kogiti" %>
+                    Co-Founder
+                <% end %>
+            </p>
+
+            <p class="profile-race"><%= @character.species %></p>
+
+            <p class="profile-career"><%= @character.career.name %></p>
+
+            <% specs = [] %>
+            <% @character.specializations.each do |spec| %>
+
+                <% specs.push(spec.name) %>
+
+            <% end %>
+
+            <p class="profile-specializations">
+
+                <%= specs.length > 1 ? specs.join("; ") : specs[0] %>
+
+            </p>
+
+        </div>
+
+    </div>
+
     <div class="columns">
 
         <div class="col1">
 
             <div class="column-header">
                 <p>Skills</p>
+            </div>
+
+            <div class='attributes'>
+
+                <div class='attr brawn' id="brawn">
+                    <p class='attr-label'>Brawn</p>
+                    <p class='sw attr-ranks'><%= @character.brawn %></p>
+                </div>
+
+                <div class='attr agility' id="agility">
+                    <p class='attr-label'>Agility</p>
+                    <p class='sw attr-ranks'><%= @character.agility %></p>
+                </div>
+
+                <div class='attr intellect' id='intellect'>
+                    <p class='attr-label'>Intellect</p>
+                    <p class='sw attr-ranks'><%= @character.intellect %></p>
+                </div>
+
+                <div class='attr cunning' id='cunning'>
+                    <p class='attr-label'>Cunning</p>
+                    <p class='sw attr-ranks'><%= @character.cunning %></p>
+                </div>
+
+                <div class='attr willpower' id='willpower'>
+                    <p class='attr-label'>Willpower</p>
+                    <p class='sw attr-ranks'><%= @character.willpower %></p>
+                </div>
+
+                <div class='attr presence' id='presence'>
+                    <p class='attr-label'>Presence</p>
+                    <p class='sw attr-ranks'><%= @character.presence %></p>
+                </div>
+
             </div>
 
             <div class="skills-list">
@@ -27,14 +100,21 @@
 
                     <div class="skill <%= skill.attr.downcase %>">
                         <p class="skill-name">
-                            <%= character_skill.career ? "&#9865".html_safe : '' %>
-                            <%= link_to skill.name, edit_character_character_skill_path(@character, skill)%>
+                            <%= character_skill.career ? "&#9865".html_safe : '' %> <%= link_to skill.name, edit_character_character_skill_path(@character, skill)%>
                         </p>
                         <%= display_level(character_skill.ranks) %>
                     </div>
 
                 <% end %>
 
+            </div>
+
+        </div>
+
+        <div class='col2'>
+
+            <div class="column-header">
+                <p>Talents</p>
             </div>
 
         </div>
@@ -54,8 +134,5 @@
     <p>[<%= link_to character_specialization.specialization.name, edit_character_character_specialization_path(@character, character_specialization) %>]</p>
 <% end %>
 
-<% @character.character_skills.each do |character_skill| %>
-    <p><%= character_skill.career ? "*" : '' %><%= link_to character_skill.skill.name, edit_character_character_skill_path(@character, character_skill) %></p>
-<% end %>
 <p><%= link_to "Edit Character", edit_character_path(@character) %></p>
 <p><%= link_to "Add a Skill", new_character_character_skill_path(@character) %></p>

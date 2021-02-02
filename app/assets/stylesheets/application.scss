@@ -61,10 +61,12 @@ a {
 .col1, .col2 {
     margin: 2px;
     padding: 2px;
+    flex: 1;
 }
 
 .column-header {
     font-size: 0.8em;
+    font-weight: 600;
     text-transform: uppercase;
     border: 1px solid $white;
     width: 100%;
