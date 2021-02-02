@@ -8,19 +8,19 @@
             <% end %>
         </li>
 
-        <li class="<%= controller_name == 'characters' && action_name == 'index' ? 'active' : '' %> link">
+        <li class="<%= controller_name == 'characters' ? 'active' : '' %> link">
             <%= link_to characters_path do %>
                 <i class="fas fa-users"></i>
             <% end %>
         </li>
 
-        <li class="disabled <%= controller_name == 'vehicles' && action_name == 'index' ? 'active' : '' %> link">
+        <li class="disabled <%= controller_name == 'vehicles' ? 'active' : '' %> link">
             <%= link_to root_url do %>
                 <i class="fas fa-fighter-jet"></i>
             <% end %>
         </li>
 
-        <li class="disabled <%= controller_name == 'planets' && action_name == 'index' ? 'active' : '' %> link">
+        <li class="disabled <%= controller_name == 'planets' ? 'active' : '' %> link">
             <%= link_to root_url do %>
                 <i class="fas fa-globe"></i>
             <% end %>
@@ -32,7 +32,7 @@
             <% end %>
         </li>
 
-        <li class="disabled <%= controller_name == 'contacts' && action_name == 'index' ? 'active' : '' %> link">
+        <li class="disabled <%= controller_name == 'contacts' ? 'active' : '' %> link">
             <%= link_to root_url do %>
                 <i class="fas fa-people-arrows"></i>
             <% end%>

@@ -1,0 +1,52 @@
+<% @player_characters.each do |pc| %>
+
+    <% image = pc.name.split(" ").join("_").downcase %>
+
+    <div class="profile-container">
+
+        <%= link_to character_path(pc) do %>
+
+            <div class= "profile">
+
+                <div class="profile-image">
+
+                    <%= image_tag("characters/#{image}", class: "profile-image") %>
+
+                </div>
+
+                <div class="profile-details">
+
+                    <p class="sw profile-name"><%= pc.name %></p>
+
+                    <p class="profile-position">
+                        <% if pc.name == "Pax Kal-Yuri" || pc.name == "Ajairu Kogiti" %>
+                            Co-Founder
+                        <% end %>
+                    </p>
+
+                    <p class="profile-race"><%= pc.species %></p>
+
+                    <p class="profile-career"><%= pc.career.name %></p>
+
+                    <% specs = [] %>
+                    <% pc.specializations.each do |spec| %>
+
+                        <% specs.push(spec.name) %>
+
+                    <% end %>
+
+                    <p class="profile-specializations">
+
+                        <%= specs.length > 1 ? specs.join("; ") : specs[0] %>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        <% end %>
+
+    </div>
+
+<% end %>

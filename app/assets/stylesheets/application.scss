@@ -48,12 +48,16 @@ a {
     font-family: $aurebesh;
 }
 
+.sw:hover {
+    cursor: help;
+    font-family: $primary;
+}
+
 .columns {
     display: flex;
 }
 
 .col1, .col2 {
-    border: 1px solid $white;
     margin: 2px;
     padding: 2px;
 }

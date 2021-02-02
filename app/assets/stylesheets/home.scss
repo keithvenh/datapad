@@ -9,11 +9,34 @@
     width: 100%;
 }
 
-.profile {
-    display: flex;
+.profile-container {
     margin: 4px;
-    padding: 2px;
-    .profile-image {
-        margin-right: 4px;
+    padding: 4px;
+}
+
+.profile {
+    height: 150px;
+}
+
+.profile-image {
+    height: 150px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    height: 150px;
+    box-sizing: border-box;
+
+    p {
+        margin: 2px 12px;
+    }
+
+    .profile-name {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: 2px 6px;
+        margin-top: 0; 
     }
 }
