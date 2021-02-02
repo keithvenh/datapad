@@ -1,3 +1,26 @@
-<% @characters.each do |character| %>
-    <p><%= link_to character.name, character_path(character) %></p>
-<% end %>
+<section>
+
+    <div class="section-header">
+        <p class="sw">Profiles</p>
+    </div>
+
+    <div class="profile-list">
+
+        <% letter = "" %>
+
+        <% @characters.each do |char| %>
+
+            <% if char.name[0] != letter %>
+
+                <% letter = char.name[0] %>
+                <p class="sw segmentor"><%= letter %></p>
+
+            <% end %>
+
+            <p class="character-name"><%= link_to char.name, character_path(char) %></p>
+
+        <% end %>
+
+    </div>
+
+</section>
