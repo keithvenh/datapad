@@ -47,40 +47,42 @@
 
         <div class="col2">
 
-            <div class="attributes">
+            {INSERT IMPORTANT LINKS}
 
-                <div class='attr wound-threshold'>
-                    <p class='attr-label'>Wound Threshold</p>
-                    <p class='integer attr-ranks'><%= @character.wounds %></p>
-                </div>
+        </div>
 
-                <div class='attr strain-threshold'>
-                    <p class='attr-label'>Wound Threshold</p>
-                    <p class='integer attr-ranks'><%= @character.strain %></p>
-                </div>
+    </div>
 
-                <div class='attr force-rating'>
-                    <p class='attr-label'>Force Rating</p>
-                    <p class='integer attr-ranks'><%= @character.force_rating %></p>
-                </div>
+    <div class="attributes">
 
-                <div class='attr soak'>
-                    <p class='attr-label'>Soak</p>
-                    <p class='integer attr-ranks'><%= @character.soak %></p>
-                </div>
+        <div class='attr wound-threshold'>
+            <p class='attr-label'>Wound Threshold</p>
+            <p class='integer attr-ranks'><%= @character.wounds %></p>
+        </div>
 
-                <div class='attr ranged-defense'>
-                    <p class='attr-label'>Melee Defense</p>
-                    <p class='integer attr-ranks'><%= @character.def_melee %></p>
-                </div>
+        <div class='attr strain-threshold'>
+            <p class='attr-label'>Strain Threshold</p>
+            <p class='integer attr-ranks'><%= @character.strain %></p>
+        </div>
 
-                <div class='attr wound-threshold'>
-                    <p class='attr-label'>Ranged Defense</p>
-                    <p class='integer attr-ranks'><%= @character.def_ranged %></p>
-                </div>
+        <div class='attr force-rating'>
+            <p class='attr-label'>Force Rating</p>
+            <p class='integer attr-ranks'><%= @character.force_rating %></p>
+        </div>
 
-            </div>
+        <div class='attr soak'>
+            <p class='attr-label'>Soak</p>
+            <p class='integer attr-ranks'><%= @character.soak %></p>
+        </div>
 
+        <div class='attr ranged-defense'>
+            <p class='attr-label'>Melee Defense</p>
+            <p class='integer attr-ranks'><%= @character.def_melee %></p>
+        </div>
+
+        <div class='attr wound-threshold'>
+            <p class='attr-label'>Ranged Defense</p>
+            <p class='integer attr-ranks'><%= @character.def_ranged %></p>
         </div>
 
     </div>
@@ -130,7 +132,7 @@
             <div class="skills-list">
 
                 <% category = '' %>
-                <% @character.skills.order('type_of').order('name').each do |skill| %>
+                <% @character.skills.each do |skill| %>
 
                     <% character_skill = @character.character_skills.find_by(skill: skill) %>
                     <% if skill.type_of != category %>
@@ -142,7 +144,7 @@
 
                     <div class="skill <%= skill.attr.downcase %>">
                         <p class="skill-name">
-                            <%= character_skill.career ? "&#9865".html_safe : '' %> <%= link_to skill.name, edit_character_character_skill_path(@character, skill)%>
+                            <%= character_skill.career ? "&#9865".html_safe : '' %> <%= link_to skill.name, edit_character_character_skill_path(@character, character_skill)%>
                         </p>
                         <%= display_level(character_skill.ranks) %>
                     </div>
@@ -164,17 +166,3 @@
     </div>
 
 </section>
-<h1>Characters#show</h1>
-<p><%= @character.name %></p>
-<% if @character.character_career %>
-    <p>(<%= link_to @character.character_career.career.name, edit_character_character_career_path(@character, @character.character_career) %>)</p>
-<% else %>
-    <p><%= link_to "Add a Career", new_character_character_career_path(@character) %></p>
-<% end %>
-
-<% @character.character_specializations.each do |character_specialization| %>
-    <p>[<%= link_to character_specialization.specialization.name, edit_character_character_specialization_path(@character, character_specialization) %>]</p>
-<% end %>
-
-<p><%= link_to "Edit Character", edit_character_path(@character) %></p>
-<p><%= link_to "Add a Skill", new_character_character_skill_path(@character) %></p>

@@ -2,78 +2,11 @@
 @import "reset";
 @import "colors";
 @import "fonts";
+@import "main";
 @import "datapad";
 @import "nav";
 @import "home";
 @import "forms";
 @import "sections";
 @import "characters";
-
-/* ===== SITE-WIDE STYLES ===== */
-
-html {
-    height: -webkit-fill-available;
-}
-
-body {
-    background-color: $black;
-    background-image: url('stars.png');
-    background-repeat: repeat;
-    color: $white;
-    font-family: $primary;
-    letter-spacing: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-section {
-    margin: 4px 0;
-    padding: 4px;
-    border: 2px solid $white;
-}
-
-a {
-    color: $white;
-    text-decoration: none;
-}
-
-.integer, .sw {
-    font-family: $aurebesh;
-}
-
-.sw:hover {
-    cursor: help;
-    font-family: $primary;
-}
-
-.columns {
-    display: flex;
-}
-
-.col1, .col2 {
-    margin: 2px;
-    flex: 1;
-    width: 50%;
-}
-
-.column-header {
-    font-size: 0.8em;
-    font-weight: 600;
-    text-transform: uppercase;
-    border: 1px solid $white;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 4px;
-}
-
-.fa-plus {
-    color: $green;
-}
+@import "alerts";

@@ -1,0 +1,24 @@
+@import "colors";
+@import "fonts";
+
+.alert {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 8px;
+    font-weight: 600;
+    box-sizing: border-box;
+    margin: 4px 0;
+}
+
+.alert-notice {
+    background-color: $green-clear;
+    color: $green;
+    border: 2px solid $green;
+}
+
+.alert-alert {
+    background-color: $red-clear;
+    color: $red;
+    border: 2px solid $red;
+}

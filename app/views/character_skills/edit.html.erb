@@ -1,7 +1,7 @@
 <section class="form">
 
     <div class="form-header">
-        <p class="sw">Edit <%= @character_akill.skill.name %> for <%= @character.name %></p>
+        <p class="sw">Edit for <%= @character_skill.skill.name %><%= @character.name %></p>
     </div>
 
     <%= form_for [@character, @character_skill] do |f| %>

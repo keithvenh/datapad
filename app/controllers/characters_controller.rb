@@ -11,7 +11,7 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     if @character.save!
-      flash[:notice] = "You have successfully created #{@character.name}. Add skills to #{@character.name}"
+      flash[:notice] = "You have successfully created #{@character.name}."
       create_character_skills(@character)
       redirect_to new_character_character_career_path(@character)
     else
