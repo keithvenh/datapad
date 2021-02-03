@@ -1,83 +1,91 @@
-<%= form_for @character do |f| %>
+<section class="form">
 
-    <div class="form-field">
-        <%= f.text_field :name, class: "form-input text", autofocus: true %>
-        <p class="form-label">Name</p>
+    <div class="form-header">
+        <p class="sw">Edit <%= @character.name %></p>
     </div>
 
-    <div class="form-field">
-        <%= f.text_field :species, class: "form-input text"%>
-        <p class="form-label">Species</p>
-    </div>
+    <%= form_for @character do |f| %>
 
-    <div class="form-field">
-        <%= f.text_field :type_of, class: "form-input text"%>
-        <p class="form-label">Type</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :name, class: "form-input text", autofocus: true %>
+            <p class="form-label">Name</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :soak, class: "form-input integer" %>
-        <p class="form-label">Soak</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :species, class: "form-input text"%>
+            <p class="form-label">Species</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :wounds, class: "form-input integer" %>
-        <p class="form-label">Wound Threshold</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :type_of, class: "form-input text"%>
+            <p class="form-label">Type</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :strain, class: "form-input integer" %>
-        <p class="form-label">Strain Threshold</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :soak, class: "form-input integer" %>
+            <p class="form-label">Soak</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :def_ranged, class: "form-input integer" %>
-        <p class="form-label">Ranged Defense</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :wounds, class: "form-input integer" %>
+            <p class="form-label">Wound Threshold</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :def_melee, class: "form-input integer" %>
-        <p class="form-label">Melee Defense</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :strain, class: "form-input integer" %>
+            <p class="form-label">Strain Threshold</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :brawn, class: "form-input integer" %>
-        <p class="form-label">Brawn</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :def_ranged, class: "form-input integer" %>
+            <p class="form-label">Ranged Defense</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :agility, class: "form-input integer" %>
-        <p class="form-label">Agility</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :def_melee, class: "form-input integer" %>
+            <p class="form-label">Melee Defense</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :intellect, class: "form-input integer" %>
-        <p class="form-label">Intellect</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :brawn, class: "form-input integer" %>
+            <p class="form-label">Brawn</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :cunning, class: "form-input integer" %>
-        <p class="form-label">Cunning</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :agility, class: "form-input integer" %>
+            <p class="form-label">Agility</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :willpower, class: "form-input integer" %>
-        <p class="form-label">Willpower</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :intellect, class: "form-input integer" %>
+            <p class="form-label">Intellect</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :presence, class: "form-input integer" %>
-        <p class="form-label">Presence</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :cunning, class: "form-input integer" %>
+            <p class="form-label">Cunning</p>
+        </div>
 
-    <div class="form-field">
-        <%= f.text_field :force_rating, class: "form-input integer" %>
-        <p class="form-label">Force Rating</p>
-    </div>
+        <div class="form-field">
+            <%= f.text_field :willpower, class: "form-input integer" %>
+            <p class="form-label">Willpower</p>
+        </div>
 
-    <%= f.submit "Submit", class: "button form-button success" %>
+        <div class="form-field">
+            <%= f.text_field :presence, class: "form-input integer" %>
+            <p class="form-label">Presence</p>
+        </div>
 
-    <%= link_to @character, method: :delete do %>
-        <p>Delete Character</p>
+        <div class="form-field">
+            <%= f.text_field :force_rating, class: "form-input integer" %>
+            <p class="form-label">Force Rating</p>
+        </div>
+
+        <%= f.submit "Submit", class: "button form-button success" %>
+
+        <%= link_to @character, method: :delete do %>
+            <p>Delete Character</p>
+        <% end %>
     <% end %>
-<% end %>
+
+</section>

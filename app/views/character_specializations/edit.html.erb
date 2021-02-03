@@ -1,18 +1,26 @@
-<%= form_for [@character, @character_specialization] do |f| %>
+<section class="form">
 
-    <%= f.hidden_field :character_id, value: @character.id %>
-
-    <div class="form-field">
-        <%= f.collection_select(:specialization_id, @specializations, :id, :name, {prompt: ""}, {class: "form-input select"}) %>
-        <p class="form-label">Specialization</p>
+    <div class="form-header">
+        <p class="sw">Edit Specialization for <%= @character.name %></p>
     </div>
 
-    <%= f.submit "Submit", class: "button form-button success" %>
+    <%= form_for [@character, @character_specialization] do |f| %>
 
-    <%= link_to [@character, @character_specialization], method: :delete do %>
-        <div class="button danger sw">Delete Specialization</div>
+        <%= f.hidden_field :character_id, value: @character.id %>
+
+        <div class="form-field">
+            <%= f.collection_select(:specialization_id, @specializations, :id, :name, {prompt: ""}, {class: "form-input select"}) %>
+            <p class="form-label">Specialization</p>
+        </div>
+
+        <%= f.submit "Submit", class: "button form-button success" %>
+
+        <%= link_to [@character, @character_specialization], method: :delete do %>
+            <div class="button danger sw">Delete Specialization</div>
+        <% end %>
     <% end %>
-<% end %>
 
-<p><%= link_to "< View Character", character_path(@character) %></p>
-<p><%= link_to "Add Talent >", new_character_character_specialization_path(@character) %></p>
+</section>
+
+    <p><%= link_to "< View Character", character_path(@character) %></p>
+    <p><%= link_to "Add Talent >", new_character_character_specialization_path(@character) %></p>

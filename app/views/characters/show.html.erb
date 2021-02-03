@@ -4,40 +4,82 @@
         <p class="sw"><%= @character.name %></p>
     </div>
 
-    <div class= "profile">
+    <div class="columns">
 
-        <div class="profile-image">
+        <div class="col1 profile">
 
-            <%= image_tag("characters/#{@character.name.split(' ').join('_').downcase}", class: "profile-image") %>
+            <div class="profile-image">
+
+                <%= image_tag("characters/#{@character.name.split(' ').join('_').downcase}", class: "profile-image") %>
+
+            </div>
+
+            <div class="profile-details">
+
+                <p class="sw profile-name"><%= @character.name %></p>
+
+                <p class="profile-position">
+                    <% if @character.name == "Pax Kal-Yuri" || @character.name == "Ajairu Kogiti" %>
+                        Co-Founder
+                    <% end %>
+                </p>
+
+                <p class="profile-race"><%= @character.species %></p>
+
+                <p class="profile-career"><%= @character.career.name %></p>
+
+                <% specs = [] %>
+                <% @character.specializations.each do |spec| %>
+
+                    <% specs.push(spec.name) %>
+
+                <% end %>
+
+                <p class="profile-specializations">
+
+                    <%= specs.length > 1 ? specs.join("; ") : specs[0] %>
+
+                </p>
+
+            </div>
 
         </div>
 
-        <div class="profile-details">
+        <div class="col2">
 
-            <p class="sw profile-name"><%= @character.name %></p>
+            <div class="attributes">
 
-            <p class="profile-position">
-                <% if @character.name == "Pax Kal-Yuri" || @character.name == "Ajairu Kogiti" %>
-                    Co-Founder
-                <% end %>
-            </p>
+                <div class='attr wound-threshold'>
+                    <p class='attr-label'>Wound Threshold</p>
+                    <p class='integer attr-ranks'><%= @character.wounds %></p>
+                </div>
 
-            <p class="profile-race"><%= @character.species %></p>
+                <div class='attr strain-threshold'>
+                    <p class='attr-label'>Wound Threshold</p>
+                    <p class='integer attr-ranks'><%= @character.strain %></p>
+                </div>
 
-            <p class="profile-career"><%= @character.career.name %></p>
+                <div class='attr force-rating'>
+                    <p class='attr-label'>Force Rating</p>
+                    <p class='integer attr-ranks'><%= @character.force_rating %></p>
+                </div>
 
-            <% specs = [] %>
-            <% @character.specializations.each do |spec| %>
+                <div class='attr soak'>
+                    <p class='attr-label'>Soak</p>
+                    <p class='integer attr-ranks'><%= @character.soak %></p>
+                </div>
 
-                <% specs.push(spec.name) %>
+                <div class='attr ranged-defense'>
+                    <p class='attr-label'>Melee Defense</p>
+                    <p class='integer attr-ranks'><%= @character.def_melee %></p>
+                </div>
 
-            <% end %>
+                <div class='attr wound-threshold'>
+                    <p class='attr-label'>Ranged Defense</p>
+                    <p class='integer attr-ranks'><%= @character.def_ranged %></p>
+                </div>
 
-            <p class="profile-specializations">
-
-                <%= specs.length > 1 ? specs.join("; ") : specs[0] %>
-
-            </p>
+            </div>
 
         </div>
 
@@ -55,32 +97,32 @@
 
                 <div class='attr brawn' id="brawn">
                     <p class='attr-label'>Brawn</p>
-                    <p class='sw attr-ranks'><%= @character.brawn %></p>
+                    <p class='integer attr-ranks'><%= @character.brawn %></p>
                 </div>
 
                 <div class='attr agility' id="agility">
                     <p class='attr-label'>Agility</p>
-                    <p class='sw attr-ranks'><%= @character.agility %></p>
+                    <p class='integer attr-ranks'><%= @character.agility %></p>
                 </div>
 
                 <div class='attr intellect' id='intellect'>
                     <p class='attr-label'>Intellect</p>
-                    <p class='sw attr-ranks'><%= @character.intellect %></p>
+                    <p class='integer attr-ranks'><%= @character.intellect %></p>
                 </div>
 
                 <div class='attr cunning' id='cunning'>
                     <p class='attr-label'>Cunning</p>
-                    <p class='sw attr-ranks'><%= @character.cunning %></p>
+                    <p class='integer attr-ranks'><%= @character.cunning %></p>
                 </div>
 
                 <div class='attr willpower' id='willpower'>
                     <p class='attr-label'>Willpower</p>
-                    <p class='sw attr-ranks'><%= @character.willpower %></p>
+                    <p class='integer attr-ranks'><%= @character.willpower %></p>
                 </div>
 
                 <div class='attr presence' id='presence'>
                     <p class='attr-label'>Presence</p>
-                    <p class='sw attr-ranks'><%= @character.presence %></p>
+                    <p class='integer attr-ranks'><%= @character.presence %></p>
                 </div>
 
             </div>
