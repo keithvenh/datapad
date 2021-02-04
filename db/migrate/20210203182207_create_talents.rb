@@ -6,7 +6,7 @@ class CreateTalents < ActiveRecord::Migration[6.0]
       t.boolean :active
       t.string :activation_type
       t.text :shortDesc
-      t.text :longDsec
+      t.text :longDesc
       t.boolean :force
       t.boolean :ranked
 

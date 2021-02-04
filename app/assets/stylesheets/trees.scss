@@ -1,0 +1,72 @@
+@import 'colors';
+
+.talent {
+    height: 200px;
+    width: 100%;
+    border: 2px solid $white;
+    overflow-y: hidden;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.talent-heading {
+    border-bottom: 1px solid $white;
+    padding: 4px;
+    text-transform: uppercase;
+}
+
+.talent-short-desc {
+    padding: 4px;
+    line-height: 1.2em;
+    color: $black;
+    background-color: silver;
+    height: 100%;
+}
+
+.connect-up-true, .connect-down-true {
+    height: 10px;
+    width: 5px;
+    min-width: 5px;
+    background-color: $green;
+}
+
+.connect-left-true, .connect-right-true {
+    height: 5px;
+    width: 10px;
+    min-width: 10px;
+    background-color: $green;
+}
+
+.connect-up-false, .connect-down-false {
+    height: 10px;
+    width: 5px;
+    min-width: 5x;
+    background-color: $black;
+}
+
+.connect-left-false, .connect-right-false {
+    height: 5px;
+    width: 10px;
+    min-width: 10px;
+    background-color: $black;
+}
+
+.spec-talent-connected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    box-sizing: border-box;
+}
+
+.specialization {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.specialization-talent {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

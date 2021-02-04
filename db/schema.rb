@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_182207) do
+ActiveRecord::Schema.define(version: 2021_02_03_203637) do
 
   create_table "books", force: :cascade do |t|
     t.string "game"
@@ -105,6 +105,23 @@ ActiveRecord::Schema.define(version: 2021_02_03_182207) do
     t.index ["specialization_id"], name: "index_specialization_skills_on_specialization_id"
   end
 
+  create_table "specialization_talents", force: :cascade do |t|
+    t.integer "specialization_id", null: false
+    t.integer "talent_id", null: false
+    t.integer "row"
+    t.integer "colStart"
+    t.integer "colSpan"
+    t.boolean "upLink"
+    t.boolean "downLink"
+    t.boolean "leftLink"
+    t.boolean "rightLink"
+    t.integer "cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["specialization_id"], name: "index_specialization_talents_on_specialization_id"
+    t.index ["talent_id"], name: "index_specialization_talents_on_talent_id"
+  end
+
   create_table "specializations", force: :cascade do |t|
     t.integer "book_id", null: false
     t.string "name"
@@ -154,6 +171,8 @@ ActiveRecord::Schema.define(version: 2021_02_03_182207) do
   add_foreign_key "character_specializations", "specializations"
   add_foreign_key "specialization_skills", "skills"
   add_foreign_key "specialization_skills", "specializations"
+  add_foreign_key "specialization_talents", "specializations"
+  add_foreign_key "specialization_talents", "talents"
   add_foreign_key "specializations", "books"
   add_foreign_key "specializations", "careers"
   add_foreign_key "talents", "books"

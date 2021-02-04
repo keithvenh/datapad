@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  specialization: one
+  talent: one
+  row: 1
+  colStart: 1
+  colSpan: 1
+  upLink: false
+  downLink: false
+  leftLink: false
+  rightLink: false
+  cost: 1
+
+two:
+  specialization: two
+  talent: two
+  row: 1
+  colStart: 1
+  colSpan: 1
+  upLink: false
+  downLink: false
+  leftLink: false
+  rightLink: false
+  cost: 1

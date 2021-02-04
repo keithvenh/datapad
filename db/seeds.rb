@@ -21,7 +21,7 @@ require 'csv'
 #     credits: 0,
 # )
 
-# skills = CSV.parse(File.read('db/skills.csv'), headers: true )
+# skills = CSV.parse(File.read('db/skills.csv', encoding: 'bom|utf-8'), headers: true )
 
 # skills.each do |row|
 #     Skill.create!(
@@ -32,7 +32,7 @@ require 'csv'
 #     )
 # end
 
-# books = CSV.parse(File.read('db/books.csv'), headers: true )
+# books = CSV.parse(File.read('db/books.csv', encoding: 'bom|utf-8'), headers: true )
 
 # books.each do |row|
 #     Book.create!(
@@ -43,7 +43,7 @@ require 'csv'
 #     )
 # end
 
-# careers = CSV.parse(File.read('db/careers.csv'), headers: true )
+# careers = CSV.parse(File.read('db/careers.csv', encoding: 'bom|utf-8'), headers: true )
 
 # careers.each do |row|
 #     book = Book.where(game: row['Game'], title: 'Core Rulebook').first
@@ -73,7 +73,7 @@ require 'csv'
 #     end
 # end
 
-# specializations = CSV.parse(File.read('db/specializations.csv'), headers: true )
+# specializations = CSV.parse(File.read('db/specializations.csv', encoding: 'bom|utf-8'), headers: true )
 
 # specializations.each do |row|
 #     book = Book.where(game: row['Game'], title: 'Core Rulebook').first
@@ -101,20 +101,67 @@ require 'csv'
 #     end
 # end
 
-talents = CSV.parse(File.read('db/talents.csv'), headers: true)
+# talents = CSV.parse(File.read('db/talents.csv', encoding: 'bom|utf-8'), headers: true)
 
-talents.each_with_index do |row, index|
-    book = Book.where(game: row['Game'], title: 'Core Rulebook').first
-    active = false
-    activation = row['Activation']
-    if activation != "Passive"
-        active = true
-        puts "#{index} :: " + activation
-        if activation != "Active"
-            activation = activation.split(' (')
-            activation = activation[1].delete_suffix!(')')
-            puts "#{index} :: " + activation
-        end
-    end
+# talents.each do |row|
+#     book = Book.where(game: row['Game'], title: 'Core Rulebook').first
+#     active = false
+#     activation = row['Activation']
+#     if activation != "Passive"
+#         active = true
+#         if activation != "Active"
+#             activation = activation.split(' (')
+#             activation = activation[1].delete_suffix!(')')
+#         end
+#     end
+
+#     row['Force?'] == 'TRUE' ? force = true : force = false
+#     puts force
+#     row['Ranked?'] == 'TRUE' ? ranked = true : ranked = false
+#     puts ranked
+
+#     Talent.create!(
+#         book: book,
+#         name: row['Talent'],
+#         active: active,
+#         activation_type: activation,
+#         shortDesc: row['Description'],
+
+#         # ====== FIX THIS ON NEXT MIGRATION ====== #
+#         longDsec: row['LongDescription'],
+#         force: force,
+#         ranked: ranked
+#     )
+# end
+
+specialization_talents = CSV.parse(File.read('db/specialization_talents.csv', encoding: 'bom|utf-8'), headers: true)
+specialization_talents.each_with_index do |row, index|
+
+    specialization = Specialization.find_by(name: row['Specialization'])
+    puts specialization
+    talent = Talent.find_by(name: row['Talent'])
+    upLink = false
+    downLink = false
+    leftLink = false
+    rightLink = false
+    if row['UpLink'] == 'TRUE' then upLink = true end
+    if row['DownLink'] == 'TRUE' then downLink = true end
+    if row['LeftLink'] == 'TRUE' then leftLink = true end
+    if row['RightLink'] == 'TRUE' then rightLink = true end
+
+    puts index
+    puts row['Talent']
+    SpecializationTalent.create!(
+        specialization: specialization,
+        talent: talent,
+        row: row['Row'],
+        colStart: row['ColStart'],
+        colSpan: row['ColSpan'],
+        upLink: upLink,
+        downLink: downLink,
+        leftLink: leftLink,
+        rightLink: rightLink,
+        cost: row['Cost']
+    )
 
 end

@@ -27,3 +27,40 @@
     </div>
 
 </section>
+
+<section>
+
+    <p class="title"><%= @specialization.name %></p>
+    
+    <div class="specialization">
+
+        <% @specialization.specialization_talents.each do |spec_talent| %>
+
+        <div class="spec-talent-connected">
+
+            <div class="connect-left-<%= spec_talent.leftLink %>">
+            </div>
+
+            <div class="specialization-talent">
+
+                <div class='connect-up-<%= spec_talent.upLink %>'>
+                </div>
+
+                <div class="talent">
+                    <p class='talent-heading'>&#9633 <%= spec_talent.talent.name %></p>
+                    <p class="talent-short-desc"><%= spec_talent.talent.shortDesc%>
+                </div>
+
+                <div class="connect-down-<%= spec_talent.downLink %>">
+                </div>
+
+            </div>
+
+            <div class="connect-right-<%= spec_talent.rightLink %>">
+            </div>
+
+        </div>
+        <% end %>
+
+    </div>
+</section>
