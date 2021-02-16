@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
     t.boolean "active"
     t.string "activation_type"
     t.text "shortDesc"
-    t.text "longDsec"
+    t.text "longDesc"
     t.boolean "force"
     t.boolean "ranked"
     t.datetime "created_at", precision: 6, null: false

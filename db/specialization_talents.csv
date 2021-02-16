@@ -5,7 +5,7 @@ Advisor,Grit,1,3,1,5,0,1,0,0
 Advisor,Kill With Kindness,1,4,1,5,0,1,0,0
 Advisor,Toughened,2,1,1,10,1,1,0,0
 Advisor,Know Somebody,2,2,1,10,1,0,0,0
-Advisor,Knowledge is Power,2,3,1,10,1,0,0,0
+Advisor,Knowledge Is Power,2,3,1,10,1,0,0,0
 Advisor,Nobody's Fool,2,4,1,10,1,1,0,0
 Advisor,Grit,3,1,1,15,1,1,0,0
 Advisor,Smooth Talker,3,2,1,15,0,1,0,1
@@ -230,7 +230,7 @@ Sage,Knowledge Specialization,2,4,1,10,0,0,1,0
 Sage,Valuable Facts,3,1,1,15,0,0,0,1
 Sage,Smooth Talker,3,2,1,15,1,1,1,0
 Sage,Knowledge Specialization,3,3,1,15,1,1,0,1
-Sage,One With the Universe,3,4,1,15,0,0,1,0
+Sage,One with the Universe,3,4,1,15,0,0,1,0
 Sage,Force Rating,4,1,1,20,0,1,0,1
 Sage,Grit,4,2,1,20,1,1,1,1
 Sage,Preemptive Avoidance,4,3,1,20,1,1,1,1
@@ -659,26 +659,26 @@ Entrepreneur,Natural Merchant,5,1,1,25,1,0,0,1
 Entrepreneur,Intense Focus,5,2,1,25,1,0,1,1
 Entrepreneur,Dedication,5,3,1,25,0,0,1,1
 Entrepreneur,Sound Investments,5,4,1,25,1,0,1,0
-Marshal,Hard Headed,1,1,1,5,0,0,0,0
-Marshal,Grit,1,2,1,5,0,1,0,0
-Marshal,Street Smarts,1,3,1,5,0,1,0,0
-Marshal,Toughened,1,4,1,5,0,0,0,0
-Marshal,Durable,2,1,1,10,0,1,0,1
-Marshal,Good Cop,2,2,1,10,1,1,1,1
-Marshal,Bad Cop,2,3,1,10,1,1,1,1
-Marshal,Quick Draw,2,4,1,10,0,1,1,0
-Marshal,Hard Headed,3,1,1,15,1,1,0,0
-Marshal,Grit,3,2,1,15,1,1,0,1
-Marshal,Good Cop,3,3,1,15,1,1,1,0
-Marshal,Point Blank,3,4,1,15,1,1,0,0
-Marshal,Durable,4,1,1,20,1,1,0,0
-Marshal,Unrelenting Skeptic,4,2,1,20,1,1,0,1
-Marshal,Bad Cop,4,3,1,20,1,0,1,0
-Marshal,Point Blank,4,4,1,20,1,1,0,0
-Marshal,Hard Headed (Improved),5,1,1,25,1,0,0,0
-Marshal,Unrelenting Skeptic (Improved),5,2,1,25,1,0,0,1
-Marshal,Dedication,5,3,1,25,0,0,1,0
-Marshal,Natural Marksman,5,4,1,25,1,0,0,0
+Marshall,Hard Headed,1,1,1,5,0,0,0,0
+Marshall,Grit,1,2,1,5,0,1,0,0
+Marshall,Street Smarts,1,3,1,5,0,1,0,0
+Marshall,Toughened,1,4,1,5,0,0,0,0
+Marshall,Durable,2,1,1,10,0,1,0,1
+Marshall,Good Cop,2,2,1,10,1,1,1,1
+Marshall,Bad Cop,2,3,1,10,1,1,1,1
+Marshall,Quick Draw,2,4,1,10,0,1,1,0
+Marshall,Hard Headed,3,1,1,15,1,1,0,0
+Marshall,Grit,3,2,1,15,1,1,0,1
+Marshall,Good Cop,3,3,1,15,1,1,1,0
+Marshall,Point Blank,3,4,1,15,1,1,0,0
+Marshall,Durable,4,1,1,20,1,1,0,0
+Marshall,Unrelenting Skeptic,4,2,1,20,1,1,0,1
+Marshall,Bad Cop,4,3,1,20,1,0,1,0
+Marshall,Point Blank,4,4,1,20,1,1,0,0
+Marshall,Hard Headed (Improved),5,1,1,25,1,0,0,0
+Marshall,Unrelenting Skeptic (Improved),5,2,1,25,1,0,0,1
+Marshall,Dedication,5,3,1,25,0,0,1,0
+Marshall,Natural Marksman,5,4,1,25,1,0,0,0
 Performer,Smooth Talker,1,1,1,5,0,0,0,0
 Performer,Kill With Kindness,1,2,1,5,0,1,0,0
 Performer,Distracting Behavior,1,3,1,5,0,1,0,0
@@ -813,7 +813,7 @@ Squadron Leader,Full Stop,3,3,1,15,1,1,0,0
 Squadron Leader,Defensive Driving,3,4,1,15,0,1,0,0
 Squadron Leader,Field Commander (Improved),4,1,1,20,1,0,0,0
 Squadron Leader,Command,4,2,1,20,1,1,0,1
-Squadron Leader,Form On Me,4,3,1,20,1,1,1,1
+Squadron Leader,Form on Me,4,3,1,20,1,1,1,1
 Squadron Leader,Tricky Target,4,4,1,20,1,1,1,0
 Squadron Leader,Master Leader,5,1,1,25,0,0,0,1
 Squadron Leader,Confidence,5,2,1,25,1,0,1,0
@@ -914,7 +914,7 @@ Teacher,Now the Master,3,4,1,15,0,1,0,0
 Teacher,Wise Warrior (Improved),4,1,1,20,1,1,0,1
 Teacher,Wise Warrior,4,2,1,20,1,1,1,1
 Teacher,Grit,4,3,1,20,1,1,1,0
-Teacher,Once A Learner,4,4,1,20,1,1,0,0
+Teacher,Once a Learner,4,4,1,20,1,1,0,0
 Teacher,Dedication,5,1,1,25,1,0,0,1
 Teacher,Grit,5,2,1,25,1,0,1,0
 Teacher,Skilled Teacher,5,3,1,25,1,0,0,1
@@ -979,26 +979,26 @@ Analyst,Dedication,5,1,1,25,1,0,0,0
 Analyst,Knowledge Specialization,5,2,1,25,1,0,0,1
 Analyst,Thorough Assessment,5,3,1,25,1,0,1,0
 Analyst,Stroke of Genius,5,4,1,25,1,0,0,0
-Proagandist,Grit,1,1,1,5,0,1,0,0
-Proagandist,Positive Spin,1,2,1,5,0,1,0,0
-Proagandist,In the Know,1,3,1,5,0,1,0,0
-Proagandist,Cutting Question,1,4,1,5,0,1,0,0
-Proagandist,In the Know,2,1,1,10,1,1,0,0
-Proagandist,Positive Spin (Improved),2,2,1,10,1,1,0,0
-Proagandist,Positive Spin,2,3,1,10,1,1,0,0
-Proagandist,Toughened,2,4,1,10,1,0,0,0
-Proagandist,Bad Press,3,1,1,15,1,1,0,1
-Proagandist,Well Rounded,3,2,1,15,1,0,1,1
-Proagandist,Grit,3,3,1,15,1,1,1,1
-Proagandist,Confidence,3,4,1,15,0,1,1,0
-Proagandist,Toughened,4,1,1,20,1,1,0,1
-Proagandist,Confidence,4,2,1,20,0,1,1,1
-Proagandist,Dodge,4,3,1,20,1,0,1,1
-Proagandist,Informant,4,4,1,20,1,1,1,0
-Proagandist,Positive Spin,5,1,1,25,1,0,0,1
-Proagandist,Dedication,5,2,1,25,1,0,1,0
-Proagandist,In the Know (Improved),5,3,1,25,0,0,0,1
-Proagandist,In the Know,5,4,1,25,1,0,1,0
+Propagandist,Grit,1,1,1,5,0,1,0,0
+Propagandist,Positive Spin,1,2,1,5,0,1,0,0
+Propagandist,In the Know,1,3,1,5,0,1,0,0
+Propagandist,Cutting Question,1,4,1,5,0,1,0,0
+Propagandist,In the Know,2,1,1,10,1,1,0,0
+Propagandist,Positive Spin (Improved),2,2,1,10,1,1,0,0
+Propagandist,Positive Spin,2,3,1,10,1,1,0,0
+Propagandist,Toughened,2,4,1,10,1,0,0,0
+Propagandist,Bad Press,3,1,1,15,1,1,0,1
+Propagandist,Well Rounded,3,2,1,15,1,0,1,1
+Propagandist,Grit,3,3,1,15,1,1,1,1
+Propagandist,Confidence,3,4,1,15,0,1,1,0
+Propagandist,Toughened,4,1,1,20,1,1,0,1
+Propagandist,Confidence,4,2,1,20,0,1,1,1
+Propagandist,Dodge,4,3,1,20,1,0,1,1
+Propagandist,Informant,4,4,1,20,1,1,1,0
+Propagandist,Positive Spin,5,1,1,25,1,0,0,1
+Propagandist,Dedication,5,2,1,25,1,0,1,0
+Propagandist,In the Know (Improved),5,3,1,25,0,0,0,1
+Propagandist,In the Know,5,4,1,25,1,0,1,0
 Quartermaster,Know Somebody,1,1,1,5,0,1,0,0
 Quartermaster,Smooth Talker,1,2,1,5,0,0,0,0
 Quartermaster,Wheel and Deal,1,3,1,5,0,0,0,0
@@ -1067,11 +1067,11 @@ Saboteur,Grit,2,1,1,10,1,0,0,1
 Saboteur,Powerful Blast,2,2,1,10,0,1,1,1
 Saboteur,Toughened,2,3,1,10,0,1,1,1
 Saboteur,Second Wind,2,4,1,10,1,0,1,0
-Saboteur,Time To Go,3,1,1,15,0,1,0,1
+Saboteur,Time to Go,3,1,1,15,0,1,0,1
 Saboteur,Rapid Recovery,3,2,1,15,1,1,1,0
 Saboteur,Resolve,3,3,1,15,1,0,0,1
 Saboteur,Hard Headed,3,4,1,15,0,1,1,0
-Saboteur,Time To Go (Improved),4,1,1,20,1,0,0,0
+Saboteur,Time to Go (Improved),4,1,1,20,1,0,0,0
 Saboteur,Powerful Blast,4,2,1,20,1,1,0,1
 Saboteur,Selective Detonation,4,3,1,20,0,1,1,0
 Saboteur,Toughened,4,4,1,20,1,1,0,0
@@ -1120,12 +1120,12 @@ Scientist,Careful Planning,5,2,1,25,0,0,1,1
 Scientist,Dedication,5,3,1,25,0,0,1,1
 Scientist,Utility Belt,5,4,1,25,1,0,1,0
 Shipwright,Dockyard Expertise,1,1,1,5,0,1,0,0
-Shipwright,Eye For Detail,1,2,1,5,0,0,0,0
+Shipwright,Eye for Detail,1,2,1,5,0,0,0,0
 Shipwright,Grit,1,3,1,5,0,0,0,0
 Shipwright,Creative Design,1,4,1,5,0,1,0,0
 Shipwright,Solid Repairs,2,1,1,10,1,1,0,1
 Shipwright,Fine Tuning,2,2,1,10,0,1,1,0
-Shipwright,Eye For Detail,2,3,1,10,0,1,0,1
+Shipwright,Eye for Detail,2,3,1,10,0,1,0,1
 Shipwright,Debilitating Shot,2,4,1,10,1,0,1,0
 Shipwright,Known Schematic,3,1,1,15,1,1,0,0
 Shipwright,Dockyard Expertise,3,2,1,15,1,1,0,1
@@ -1159,26 +1159,26 @@ Archaeologist,Pin,5,1,1,25,1,0,0,1
 Archaeologist,Dedication,5,2,1,25,1,0,1,1
 Archaeologist,Respected Scholar,5,3,1,25,1,0,1,1
 Archaeologist,Museum Worthy,5,4,1,25,1,0,1,0
-Big Game Hunter,Forager,1,1,1,5,0,1,0,0
-Big Game Hunter,Grit,1,2,1,5,0,0,0,0
-Big Game Hunter,Stalker,1,3,1,5,0,1,0,0
-Big Game Hunter,Outdoorsman,1,4,1,5,0,1,0,0
-Big Game Hunter,Toughened,2,1,1,10,1,1,0,1
-Big Game Hunter,Outdoorsman,2,2,1,10,0,0,1,1
-Big Game Hunter,Confidence,2,3,1,10,1,1,1,0
-Big Game Hunter,Swift,2,4,1,10,1,0,0,0
-Big Game Hunter,Stalker,3,1,1,15,1,0,0,0
-Big Game Hunter,Natural Hunter,3,2,1,15,0,0,0,1
-Big Game Hunter,Expert Tracker,3,3,1,15,1,1,1,1
-Big Game Hunter,Heightened Awareness,3,4,1,15,0,1,1,0
-Big Game Hunter,Grit,4,1,1,20,0,1,0,1
-Big Game Hunter,Hunter's Quarry,4,2,1,20,0,1,1,1
-Big Game Hunter,Quick Strike,4,3,1,20,1,1,1,0
-Big Game Hunter,Expert Tracker,4,4,1,20,1,1,0,0
-Big Game Hunter,Bring It Down,5,1,1,25,1,0,0,0
-Big Game Hunter,Hunter's Quarry (Improved),5,2,1,25,1,0,0,0
-Big Game Hunter,Dedication,5,3,1,25,1,0,0,1
-Big Game Hunter,Superior Reflexes,5,4,1,25,1,0,1,0
+Big-Game Hunter,Forager,1,1,1,5,0,1,0,0
+Big-Game Hunter,Grit,1,2,1,5,0,0,0,0
+Big-Game Hunter,Stalker,1,3,1,5,0,1,0,0
+Big-Game Hunter,Outdoorsman,1,4,1,5,0,1,0,0
+Big-Game Hunter,Toughened,2,1,1,10,1,1,0,1
+Big-Game Hunter,Outdoorsman,2,2,1,10,0,0,1,1
+Big-Game Hunter,Confidence,2,3,1,10,1,1,1,0
+Big-Game Hunter,Swift,2,4,1,10,1,0,0,0
+Big-Game Hunter,Stalker,3,1,1,15,1,0,0,0
+Big-Game Hunter,Natural Hunter,3,2,1,15,0,0,0,1
+Big-Game Hunter,Expert Tracker,3,3,1,15,1,1,1,1
+Big-Game Hunter,Heightened Awareness,3,4,1,15,0,1,1,0
+Big-Game Hunter,Grit,4,1,1,20,0,1,0,1
+Big-Game Hunter,Hunter's Quarry,4,2,1,20,0,1,1,1
+Big-Game Hunter,Quick Strike,4,3,1,20,1,1,1,0
+Big-Game Hunter,Expert Tracker,4,4,1,20,1,1,0,0
+Big-Game Hunter,Bring It Down,5,1,1,25,1,0,0,0
+Big-Game Hunter,Hunter's Quarry (Improved),5,2,1,25,1,0,0,0
+Big-Game Hunter,Dedication,5,3,1,25,1,0,0,1
+Big-Game Hunter,Superior Reflexes,5,4,1,25,1,0,1,0
 Fringer,Galaxy Mapper,1,1,1,5,0,1,0,0
 Fringer,Street Smarts,1,2,1,5,0,0,0,0
 Fringer,Rapid Recovery,1,3,1,5,0,1,0,0
@@ -1264,11 +1264,11 @@ Demolitionist,Grit,1,2,1,5,0,1,0,0
 Demolitionist,Selective Detonation,1,3,1,5,0,0,0,0
 Demolitionist,Steady Nerves,1,4,1,5,0,1,0,0
 Demolitionist,Toughened,2,1,1,10,1,1,0,0
-Demolitionist,Time To Go,2,2,1,10,1,1,0,0
+Demolitionist,Time to Go,2,2,1,10,1,1,0,0
 Demolitionist,Powerful Blast,2,3,1,10,0,1,0,1
 Demolitionist,Grit,2,4,1,10,1,1,1,0
 Demolitionist,Enduring,3,1,1,15,1,1,0,0
-Demolitionist,Time To Go (Improved),3,2,1,15,1,0,0,0
+Demolitionist,Time to Go (Improved),3,2,1,15,1,0,0,0
 Demolitionist,Steady Nerves,3,3,1,15,1,1,0,0
 Demolitionist,Rapid Reaction,3,4,1,15,1,1,0,0
 Demolitionist,Improvised Detonation,4,1,1,20,1,1,0,1
@@ -1475,7 +1475,7 @@ Navigator,Galaxy Mapper,4,1,1,20,1,0,0,1
 Navigator,Holistic Navigation,4,2,1,20,1,1,1,0
 Navigator,Force Rating,4,3,1,20,1,1,0,1
 Navigator,Planet Mapper,4,4,1,20,1,0,1,0
-Navigator,One With the Universe,5,1,1,25,0,0,0,1
+Navigator,One with the Universe,5,1,1,25,0,0,0,1
 Navigator,Intuitive Navigation,5,2,1,25,1,0,1,1
 Navigator,Master Starhopper,5,3,1,25,1,0,1,1
 Navigator,Dedication,5,4,1,25,0,0,1,0
@@ -1732,13 +1732,13 @@ Trailblazer,Dodge,3,2,1,15,1,1,1,1
 Trailblazer,Blind Spot,3,3,1,15,1,1,1,0
 Trailblazer,Toughened,3,4,1,15,1,1,0,0
 Trailblazer,Dodge,4,1,1,20,1,1,0,1
-Trailblazer,Prey On the Weak,4,2,1,20,1,0,1,0
+Trailblazer,Prey on the Weak,4,2,1,20,1,0,1,0
 Trailblazer,Expert Tracker,4,3,1,20,1,1,0,1
 Trailblazer,One With Nature,4,4,1,20,1,0,1,0
 Trailblazer,Dedication,5,1,1,25,1,0,0,1
 Trailblazer,Ambush,5,2,1,25,0,0,1,1
 Trailblazer,Disorient,5,3,1,25,1,0,1,1
-Trailblazer,Prey On the Weak,5,4,1,25,0,0,1,0
+Trailblazer,Prey on the Weak,5,4,1,25,0,0,1,0
 Vanguard,Bodyguard,1,1,1,5,0,1,0,0
 Vanguard,Conditioned,1,2,1,5,0,1,0,0
 Vanguard,Toughened,1,3,1,5,0,0,0,0
@@ -1863,7 +1863,7 @@ Cyber Tech,Cyberneticist,1,1,1,5,0,1,0,0
 Cyber Tech,More Machine Than Man,1,2,1,5,0,1,0,0
 Cyber Tech,Engineered Redundancies,1,3,1,5,0,0,0,0
 Cyber Tech,Toughened,1,4,1,5,0,1,0,0
-Cyber Tech,Eye For Detail,2,1,1,10,1,1,0,0
+Cyber Tech,Eye for Detail,2,1,1,10,1,1,0,0
 Cyber Tech,Toughened,2,2,1,10,1,1,0,1
 Cyber Tech,Energy Transfer,2,3,1,10,0,1,1,1
 Cyber Tech,Cyberneticist,2,4,1,10,1,1,1,0
@@ -1884,7 +1884,7 @@ Droid Tech,Hidden Storage,1,2,1,5,0,1,0,0
 Droid Tech,Speaks Binary,1,3,1,5,0,1,0,0
 Droid Tech,Grit,1,4,1,5,0,1,0,0
 Droid Tech,Deft Maker,2,1,1,10,1,1,0,1
-Droid Tech,Eye For Detail,2,2,1,10,1,0,1,0
+Droid Tech,Eye for Detail,2,2,1,10,1,0,1,0
 Droid Tech,Grit,2,3,1,10,1,1,0,1
 Droid Tech,Speaks Binary,2,4,1,10,1,1,1,0
 Droid Tech,Grit,3,1,1,15,1,1,0,0
@@ -1895,7 +1895,7 @@ Droid Tech,Redundant Systems,4,1,1,20,1,1,0,0
 Droid Tech,Machine Mender,4,2,1,20,0,1,0,1
 Droid Tech,Speaks Binary,4,3,1,20,1,0,1,1
 Droid Tech,Deft Maker,4,4,1,20,1,1,1,0
-Droid Tech,Eye For Detail,5,1,1,25,1,0,0,1
+Droid Tech,Eye for Detail,5,1,1,25,1,0,0,1
 Droid Tech,Reroute Processors,5,2,1,25,1,0,1,1
 Droid Tech,Dedication,5,3,1,25,0,0,1,1
 Droid Tech,Machine Mender,5,4,1,25,1,0,1,0
@@ -1925,7 +1925,7 @@ Aggressor,Grit,1,3,1,5,0,1,0,0
 Aggressor,Toughened,1,4,1,5,0,1,0,0
 Aggressor,Fearsome,2,1,1,10,1,1,0,1
 Aggressor,Intimidating,2,2,1,10,1,1,1,1
-Aggressor,Prey On the Weak,2,3,1,10,1,1,1,0
+Aggressor,Prey on the Weak,2,3,1,10,1,1,1,0
 Aggressor,Sense Advantage,2,4,1,10,1,1,0,0
 Aggressor,Fearsome,3,1,1,15,1,1,0,1
 Aggressor,Terrify,3,2,1,15,1,1,1,0
@@ -1933,7 +1933,7 @@ Aggressor,Crippling Blow,3,3,1,15,1,1,0,1
 Aggressor,Toughened,3,4,1,15,1,1,1,0
 Aggressor,Grit,4,1,1,20,1,1,0,1
 Aggressor,Terrify (Improved),4,2,1,20,1,1,1,0
-Aggressor,Prey On the Weak,4,3,1,20,1,1,0,0
+Aggressor,Prey on the Weak,4,3,1,20,1,1,0,0
 Aggressor,Heroic Fortitude,4,4,1,20,1,1,0,0
 Aggressor,Force Rating,5,1,1,25,1,0,0,1
 Aggressor,Fearsome,5,2,1,25,1,0,1,1
