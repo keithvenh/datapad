@@ -29,17 +29,15 @@
                 <p class="profile-career"><%= @character.career.name %></p>
 
                 <% specs = [] %>
-                <% @character.specializations.each do |spec| %>
+                <% @character.character_specializations.each do |char_spec| %>
 
-                    <% specs.push(spec.name) %>
+                    <p class="profile-specializations">
+
+                        <%= link_to(char_spec.specialization.name, character_character_specialization_path(@character, char_spec)) %>
+
+                    </p>
 
                 <% end %>
-
-                <p class="profile-specializations">
-
-                    <%= specs.length > 1 ? specs.join("; ") : specs[0] %>
-
-                </p>
 
             </div>
 

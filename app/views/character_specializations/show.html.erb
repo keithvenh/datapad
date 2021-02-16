@@ -1,0 +1,72 @@
+<section>
+
+    <div class="section-header">
+        <p class="sw"><%= @character.name %></p>
+    </div>
+    <div class=" profile">
+
+        <div class="profile-image">
+
+            <%= image_tag("characters/#{@character.name.split(' ').join('_').downcase}", class: "profile-image") %>
+
+        </div>
+
+        <div class="profile-details">
+
+            <p class="sw profile-name"><%= @character.name %></p>
+
+            <p class="profile-race"><%= @character.species %></p>
+
+            <p class="profile-career"><%= @character.career.name %></p>
+
+            <p class="specialization-title"><%= @character_specialization.specialization.name %></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+    
+    <div class="specialization">
+
+        <% @character_specialization.specialization.specialization_talents.each do |spec_talent| %>
+
+            <% character_spec_talent = CharacterSpecTalent.where(character: @character, specialization_talent: spec_talent).first %>
+
+            <div class="spec-talent-connected">
+
+                <div class="connect-left-<%= spec_talent.leftLink %>">
+                </div>
+
+                <div class="specialization-talent">
+
+                    <div class='connect-up-<%= spec_talent.upLink %>'>
+                    </div>
+                    <%= link_to edit_character_character_spec_talent_path(@character, character_spec_talent) do %>
+                        <div class="talent">
+                            <p class='talent-heading active-<%= spec_talent.talent.active %>'>
+
+                                <%= character_spec_talent.purchased ? "&#9989".html_safe : "&#11036".html_safe %> <%= spec_talent.talent.name %>
+
+                            </p>
+
+                            <p class="talent-short-desc"><%= spec_talent.talent.shortDesc%>
+                        </div>
+                    <% end %>
+
+                    <div class="connect-down-<%= spec_talent.downLink %>">
+                    </div>
+
+                </div>
+
+                <div class="connect-right-<%= spec_talent.rightLink %>">
+                </div>
+
+            </div>
+        <% end %>
+
+    </div>
+
+</section>

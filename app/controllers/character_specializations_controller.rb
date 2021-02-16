@@ -13,11 +13,17 @@ class CharacterSpecializationsController < ApplicationController
     if @character_specialization.save!
       flash[:notice] = "You have successfully added #{@character_specialization.specialization.name} to #{@character.name}"
       update_character_career_skills(@character, @character_specialization.specialization)
+      add_character_specialization_talents(@character, @character_specialization.specialization)
       redirect_to character_path(@character)
     else
       flash.now[:alert] = "Beep Boop. Something went wrong."
       render 'new'
     end
+  end
+
+  def show
+    @character = find_character
+    @character_specialization = CharacterSpecialization.find(params[:id])
   end
 
   def edit
@@ -66,4 +72,19 @@ class CharacterSpecializationsController < ApplicationController
       end
 
     end
+
+    def add_character_specialization_talents(character, specialization)
+
+      specialization.specialization_talents.each do |spec_talent|
+
+        CharacterSpecTalent.create!(
+          character: character,
+          specialization_talent: spec_talent,
+          purchased: false
+        )
+
+      end
+
+    end
+
 end

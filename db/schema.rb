@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_203637) do
+ActiveRecord::Schema.define(version: 2021_02_15_231549) do
 
   create_table "books", force: :cascade do |t|
     t.string "game"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 2021_02_03_203637) do
     t.index ["skill_id"], name: "index_character_skills_on_skill_id"
   end
 
+  create_table "character_spec_talents", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "specialization_talent_id", null: false
+    t.boolean "purchased"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_spec_talents_on_character_id"
+    t.index ["specialization_talent_id"], name: "index_character_spec_talents_on_specialization_talent_id"
+  end
+
   create_table "character_specializations", force: :cascade do |t|
     t.integer "character_id", null: false
     t.integer "specialization_id", null: false
@@ -65,6 +75,16 @@ ActiveRecord::Schema.define(version: 2021_02_03_203637) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_specializations_on_character_id"
     t.index ["specialization_id"], name: "index_character_specializations_on_specialization_id"
+  end
+
+  create_table "character_talents", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "talent_id", null: false
+    t.boolean "purchased"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_talents_on_character_id"
+    t.index ["talent_id"], name: "index_character_talents_on_talent_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -167,8 +187,12 @@ ActiveRecord::Schema.define(version: 2021_02_03_203637) do
   add_foreign_key "character_careers", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "character_skills", "skills"
+  add_foreign_key "character_spec_talents", "characters"
+  add_foreign_key "character_spec_talents", "specialization_talents"
   add_foreign_key "character_specializations", "characters"
   add_foreign_key "character_specializations", "specializations"
+  add_foreign_key "character_talents", "characters"
+  add_foreign_key "character_talents", "talents"
   add_foreign_key "specialization_skills", "skills"
   add_foreign_key "specialization_skills", "specializations"
   add_foreign_key "specialization_talents", "specializations"

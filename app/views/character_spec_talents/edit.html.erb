@@ -1,0 +1,33 @@
+<section class="form">
+
+    <div class="form-header">
+        <p class="sw">Edit Talent for <%= @character.name %></p>
+    </div>
+
+    <%= form_for [@character, @character_spec_talent] do |f| %>
+
+        <%= f.hidden_field :character_id, value: @character.id %>
+
+        <%= f.hidden_field :specialization_talent_id, value: @character_spec_talent.specialization_talent.id %>
+
+        <div class="form-field">
+            <p class="form-input"><%= @character_spec_talent.specialization_talent.talent.name %></p>
+            <p class="form-label">Talent</p>
+        </div>
+
+        <div class="form-field">
+            <p class="form-input"><%= @character_spec_talent.specialization_talent.cost %>XP</p>
+            <p class="form-label">Cost</p>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :purchased,  class: "boolean"%> Purchased?</p>
+            </div>
+        </div>
+
+        <%= f.submit "Submit", class: "button form-button success" %>
+
+    <% end %>
+
+</section>
