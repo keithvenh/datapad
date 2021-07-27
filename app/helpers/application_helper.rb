@@ -22,13 +22,13 @@ module ApplicationHelper
 
     def replace_dice(text)
 
-        text = text.gsub ':bl:', "<span style='color: #0df; font-size: 24px;'>&#9724;</span>"
-        text = text.gsub ':bk:', "<span style='color: #000; font-size: 24px;'>&#9724;</span>"
-        text = text.gsub ':gr:', "<span style='color: #0a0; font-size: 24px;'>&#9830;</span>"
-        text = text.gsub ':pu:', "<span style='color: #608; font-size: 24px;'>&#9830;</span>"
-        text = text.gsub ':ye:', "<span style='color: #ff0; font-size: 20px;'>&#11042;</span>"
-        text = text.gsub ':re:', "<span style='color: #a00; font-size: 20px;'>&#11042;</span>"
-        text = text.gsub ':wh:', "<span style='color: #fff; font-size: 20px;'>&#11042;</span>"
+        text = text.gsub ':bl:', image_tag("icons/bl.png", class:"die-icon")
+        text = text.gsub ':bk:', image_tag("icons/bk.png", class:"die-icon")
+        text = text.gsub ':gr:', image_tag("icons/gr.png", class:"die-icon")
+        text = text.gsub ':pu:', image_tag("icons/pu.png", class:"die-icon")
+        text = text.gsub ':ye:', image_tag("icons/ye.png", class:"die-icon")
+        text = text.gsub ':re:', image_tag("icons/re.png", class:"die-icon")
+        text = text.gsub ':wh:', image_tag("icons/wh.png", class:"die-icon")
 
         return text.html_safe
 

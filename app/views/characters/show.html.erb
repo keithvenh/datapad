@@ -45,7 +45,11 @@
 
         <div class="col2">
 
-            {INSERT IMPORTANT LINKS}
+            <ul>
+
+                <li><%= link_to("New Specialization", new_character_character_specialization_path(@character)) %></li>
+
+            </ul>
 
         </div>
 
@@ -159,6 +163,23 @@
                 <p>Talents</p>
             </div>
 
+            <% talents = @character.character_spec_talents %>
+
+            <ul>
+
+                <% talents.each do |talent| %>
+
+                    <% if talent.purchased %>
+                        <% t = talent.specialization_talent.talent%>
+                        <li class="character-talent">
+                            <h3 class="character-talent-name"><%= t.name %></h3>
+                            <p class="character-talent-desc"><%= replace_dice(t.shortDesc) %></p>
+                        </li>
+                    <% end %>
+
+                <% end %>
+
+            </ul>
         </div>
 
     </div>

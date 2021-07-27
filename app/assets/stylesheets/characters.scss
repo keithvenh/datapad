@@ -117,3 +117,19 @@
         font-size: 1.5em;
     }
 }
+
+.character-talent {
+    margin: 8px 0;
+    border-left: 2px solid $white;
+    padding: 6px;
+}
+
+.character-talent-name {
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.character-talent-desc {
+    font-size: 0.8em;
+    padding: 4px;
+}
