@@ -141,10 +141,10 @@ specialization_talents.each_with_index do |row, index|
     downLink = false
     leftLink = false
     rightLink = false
-    if row['UpLink'] == 'TRUE' then upLink = true end
-    if row['DownLink'] == 'TRUE' then downLink = true end
-    if row['LeftLink'] == 'TRUE' then leftLink = true end
-    if row['RightLink'] == 'TRUE' then rightLink = true end
+    if row['UpLink'] == '1' then upLink = true end
+    if row['DownLink'] == '1' then downLink = true end
+    if row['LeftLink'] == '1' then leftLink = true end
+    if row['RightLink'] == '1' then rightLink = true end
 
     SpecializationTalent.create!(
         specialization: specialization,
