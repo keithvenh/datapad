@@ -26,7 +26,7 @@ class CharactersController < ApplicationController
 
   def update
     @character = find_character
-    if @character.update_attributes(character_params)
+    if @character.update(character_params)
       flash[:notice] = "You have successfully updated #{@character.name}."
       redirect_to @character
     else

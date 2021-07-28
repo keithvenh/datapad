@@ -8,7 +8,7 @@ class CharacterSpecTalentsController < ApplicationController
   def update
     @character = find_character
     @character_spec_talent = CharacterSpecTalent.find(params[:id])
-    if @character_spec_talent.update_attributes(character_spec_talent_params)
+    if @character_spec_talent.update(character_spec_talent_params)
       flash[:notice] = "You have successfully updated #{@character_spec_talent.specialization_talent.talent.name} for #{@character.name}"
       add_character_talent(@character, @character_spec_talent.specialization_talent.talent)
       redirect_to character_path(@character)

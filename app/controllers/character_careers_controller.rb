@@ -28,7 +28,7 @@ class CharacterCareersController < ApplicationController
   def update
     @character = find_character
     @character_career = CharacterCareer.find(params[:id])
-    if @character_career.update_attributes(character_career_params)
+    if @character_career.update(character_career_params)
       flash[:notice] = "You have successfully updated #{@character_career.career.name} for #{@character.name}."
       redirect_to character_path(@character)
     else

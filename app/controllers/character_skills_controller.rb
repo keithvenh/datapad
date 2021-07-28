@@ -27,7 +27,7 @@ class CharacterSkillsController < ApplicationController
   def update
     @character = find_character
     @character_skill = CharacterSkill.find(params[:id])
-    if @character_skill.update_attributes(character_skill_params)
+    if @character_skill.update(character_skill_params)
       flash[:notice] = "You have successfully updated #{@character_skill.skill.name} for #{@character.name}."
       redirect_to character_path(@character)
     else

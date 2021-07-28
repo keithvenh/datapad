@@ -35,7 +35,7 @@ class CharacterSpecializationsController < ApplicationController
   def update
     @character = find_character
     @character_specialization = CharacterSpecialization.find(params[:id])
-    if @character_specialization.update_attributes(character_specialization_params)
+    if @character_specialization.update(character_specialization_params)
       flash[:notice] = "You have successfully updated #{@character_specialization.specialization.name} for #{@character.name}."
       redirect_to character_path(@character)
     else
