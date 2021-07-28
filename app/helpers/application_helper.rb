@@ -30,6 +30,16 @@ module ApplicationHelper
         text = text.gsub ':re:', image_tag("icons/re.png", class:"die-icon")
         text = text.gsub ':wh:', image_tag("icons/wh.png", class:"die-icon")
 
+        text = text.gsub ':suc:', image_tag("icons/suc.png", class:"die-icon")
+        text = text.gsub ':adv:', image_tag("icons/adv.png", class:"die-icon")
+        text = text.gsub ':tri:', image_tag("icons/tri.png", class:"die-icon")
+        text = text.gsub ':fai:', image_tag("icons/fai.png", class:"die-icon")
+        text = text.gsub ':thr:', image_tag("icons/thr.png", class:"die-icon")
+        text = text.gsub ':des:', image_tag("icons/des.png", class:"die-icon")
+        text = text.gsub ':lsp:', image_tag("icons/lsp.png", class:"die-icon")
+        text = text.gsub ':dsp:', image_tag("icons/dsp.png", class:"die-icon")
+        text = text.gsub ':fp:', image_tag("icons/fp.png", class:"die-icon")
+
         return text.html_safe
 
     end
