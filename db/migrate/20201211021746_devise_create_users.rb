@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
 
       t.string :username
       t.integer :credits
-      t.integer :login_count
+      t.boolean :first_login, default: true
     end
 
     add_index :users, :email,                unique: true
