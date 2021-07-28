@@ -174,6 +174,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
     t.datetime "remember_created_at"
     t.string "username"
     t.integer "credits"
+    t.boolean "has_character"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

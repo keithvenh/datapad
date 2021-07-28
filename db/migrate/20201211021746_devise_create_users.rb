@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
 
       t.string :username
       t.integer :credits
-
+      t.boolean :has_character
       t.timestamps null: false
     end
 

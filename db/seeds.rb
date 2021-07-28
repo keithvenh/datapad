@@ -5,6 +5,7 @@ User.create!(
     email: "keith@datapad.io",
     password: "lukecage2",
     credits: 0,
+    has_character: false
 )
 
 User.create!(
@@ -12,6 +13,7 @@ User.create!(
     email: "zack@datapad.io",
     password: "lukecage2",
     credits: 0,
+    has_character: false
 )
 
 User.create!(
@@ -19,6 +21,7 @@ User.create!(
     email: "gamemaster@datapad.io",
     password: "lukecage2",
     credits: 0,
+    has_character: false
 )
 
 skills = CSV.parse(File.read('db/skills.csv', encoding: 'bom|utf-8'), headers: true )

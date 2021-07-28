@@ -16,7 +16,11 @@
         <%= f.submit "Submit", class: "button form-button success" %>
     <% end %>
 
-    <p><%= link_to "< View Character", character_path(@character) %></p>
-    <p><%= link_to "Add Specialization >", new_character_character_specialization_path(@character) %></p>
+    <div class="links">
+        
+        <p><%= link_to "< View Character", character_path(@character) %></p>
+        <p><%= link_to "Add Specialization >", new_character_character_specialization_path(@character) %></p>
+
+    </div>
 
 </section>
