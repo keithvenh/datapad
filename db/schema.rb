@@ -2,8 +2,8 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "career_skills", force: :cascade do |t|
-    t.integer "career_id", null: false
-    t.integer "skill_id", null: false
+    t.bigint "career_id", null: false
+    t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["career_id"], name: "index_career_skills_on_career_id"
@@ -32,15 +32,15 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
 
   create_table "careers", force: :cascade do |t|
     t.string "name"
-    t.integer "book_id", null: false
+    t.bigint "book_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_careers_on_book_id"
   end
 
   create_table "character_careers", force: :cascade do |t|
-    t.integer "character_id", null: false
-    t.integer "career_id", null: false
+    t.bigint "character_id", null: false
+    t.bigint "career_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["career_id"], name: "index_character_careers_on_career_id"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "character_skills", force: :cascade do |t|
-    t.integer "character_id", null: false
-    t.integer "skill_id", null: false
+    t.bigint "character_id", null: false
+    t.bigint "skill_id", null: false
     t.boolean "career"
     t.integer "ranks"
     t.datetime "created_at", precision: 6, null: false
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "character_spec_talents", force: :cascade do |t|
-    t.integer "character_id", null: false
-    t.integer "specialization_talent_id", null: false
+    t.bigint "character_id", null: false
+    t.bigint "specialization_talent_id", null: false
     t.boolean "purchased"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "character_specializations", force: :cascade do |t|
-    t.integer "character_id", null: false
-    t.integer "specialization_id", null: false
+    t.bigint "character_id", null: false
+    t.bigint "specialization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_specializations_on_character_id"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "character_talents", force: :cascade do |t|
-    t.integer "character_id", null: false
-    t.integer "talent_id", null: false
+    t.bigint "character_id", null: false
+    t.bigint "talent_id", null: false
     t.boolean "purchased"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -117,8 +117,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "specialization_skills", force: :cascade do |t|
-    t.integer "specialization_id", null: false
-    t.integer "skill_id", null: false
+    t.bigint "specialization_id", null: false
+    t.bigint "skill_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["skill_id"], name: "index_specialization_skills_on_skill_id"
@@ -126,8 +126,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "specialization_talents", force: :cascade do |t|
-    t.integer "specialization_id", null: false
-    t.integer "talent_id", null: false
+    t.bigint "specialization_id", null: false
+    t.bigint "talent_id", null: false
     t.integer "row"
     t.integer "colStart"
     t.integer "colSpan"
@@ -143,9 +143,9 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "specializations", force: :cascade do |t|
-    t.integer "book_id", null: false
+    t.bigint "book_id", null: false
     t.string "name"
-    t.integer "career_id", null: false
+    t.bigint "career_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_specializations_on_book_id"
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   end
 
   create_table "talents", force: :cascade do |t|
-    t.integer "book_id", null: false
+    t.bigint "book_id", null: false
     t.string "name"
     t.boolean "active"
     t.string "activation_type"
@@ -172,11 +172,10 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
     t.string "username"
     t.integer "credits"
-    t.boolean "has_character"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "first_login", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

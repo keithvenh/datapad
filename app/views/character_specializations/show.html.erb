@@ -13,7 +13,7 @@
 
         <div class="profile-details">
 
-            <p class="sw profile-name"><%= @character.name %></p>
+            <p class="sw profile-name"><%= link_to(@character.name, character_path(@character)) %></p>
 
             <p class="profile-race"><%= @character.species %></p>
 

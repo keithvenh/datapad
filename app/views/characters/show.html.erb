@@ -16,7 +16,7 @@
 
             <div class="profile-details">
 
-                <p class="sw profile-name"><%= @character.name %></p>
+                <p class="sw profile-name"><%= link_to(@character.name, edit_character_path(@character)) %></p>
 
                 <p class="profile-position">
                     <% if @character.name == "Pax Kal-Yuri" || @character.name == "Ajairu Kogiti" %>
@@ -45,7 +45,7 @@
 
         <div class="col2">
 
-            <ul>
+            <ul class="character-links">
 
                 <li><%= link_to("New Specialization", new_character_character_specialization_path(@character)) %></li>
 
