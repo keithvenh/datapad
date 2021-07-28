@@ -19,7 +19,6 @@ User.create!(
     email: "gamemaster@datapad.io",
     password: "lukecage2",
     credits: 0,
-    has_character: false
 )
 
 skills = CSV.parse(File.read('db/skills.csv', encoding: 'bom|utf-8'), headers: true )
