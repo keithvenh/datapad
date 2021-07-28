@@ -3,32 +3,62 @@
 .talent {
     height: 200px;
     width: 100%;
-    border: 2px solid $white;
     overflow-y: hidden;
     font-size: 12px;
     box-sizing: border-box;
+    border: 2px double rgba(94,83,75,0.3);
 }
 
+.talent.purchased-true {
+    border: 2px double rgba(167,157,150,1);
+
+    .talent-heading {
+        border-bottom: 2px solid $white;
+        color: $white;
+    }
+
+    .talent-heading.active-false {
+        background-color: rgba(35, 35, 47, 1);
+    }
+
+    .talent-heading.active-true {
+        background-color: rgba(89, 19, 19, 1);
+    }
+
+    .talent-short-desc {
+        background-color: #e6d6c6;
+        color: $black;
+    }
+}
+
+.spec-talent-connected.purchased-true {
+    .connect-up-true, .connect-down-true, .connect-left-true, .connect-right-true {
+        background-color: #e6d6c6;
+    }
+}
+
+
 .talent-heading {
-    border-bottom: 1px solid $white;
-    padding: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 6px;
     text-transform: uppercase;
     font-weight: 600;
+    color: rgba(255,255,255,0.3);
 }
 
 .talent-heading.active-false {
-    background-color: #007;
+    background-color: rgba(35, 35, 47, 0.3);
 }
 
 .talent-heading.active-true {
-    background-color: #900;
+    background-color: rgba(89, 19, 19, 0.3);
 }
 
 .talent-short-desc {
-    padding: 4px;
+    padding: 6px;
     line-height: 1.2em;
-    color: $black;
-    background-color: silver;
+    background-color: rgba(48, 48, 48, 0.3);
+    color: rgba(255,255,255,0.3);
     height: 100%;
 }
 
@@ -36,14 +66,14 @@
     height: 10px;
     width: 5px;
     min-width: 5px;
-    background-color: $green;
+    background-color: rgba(69,65,62,1);
 }
 
 .connect-left-true, .connect-right-true {
     height: 5px;
     width: 10px;
     min-width: 10px;
-    background-color: $green;
+    background-color: rgba(69,65,62,1);
 }
 
 .connect-up-false, .connect-down-false {

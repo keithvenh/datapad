@@ -39,7 +39,7 @@
 
             <% character_spec_talent = CharacterSpecTalent.where(character: @character, specialization_talent: spec_talent).first %>
 
-            <div class="spec-talent-connected">
+            <div class="spec-talent-connected purchased-<%= character_spec_talent.purchased %>">
 
                 <div class="connect-left-<%= spec_talent.leftLink %>">
                 </div>
@@ -49,10 +49,10 @@
                     <div class='connect-up-<%= spec_talent.upLink %>'>
                     </div>
                     <%= link_to edit_character_character_spec_talent_path(@character, character_spec_talent) do %>
-                        <div class="talent">
+                        <div class="talent purchased-<%= character_spec_talent.purchased %>">
                             <p class='talent-heading active-<%= spec_talent.talent.active %>'>
 
-                                <%= character_spec_talent.purchased ? "&#9989".html_safe : "&#11036".html_safe %> <%= spec_talent.talent.name %>
+                                <%= spec_talent.talent.name %>
 
                             </p>
 
