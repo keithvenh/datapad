@@ -5,7 +5,6 @@ User.create!(
     email: "keith@datapad.io",
     password: "lukecage2",
     credits: 0,
-    has_character: false
 )
 
 User.create!(
@@ -13,7 +12,6 @@ User.create!(
     email: "zack@datapad.io",
     password: "lukecage2",
     credits: 0,
-    has_character: false
 )
 
 User.create!(
