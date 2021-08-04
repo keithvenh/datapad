@@ -1,0 +1,23 @@
+<section class="form">
+
+    <div class="form-header">
+        <p class="sw">New Force Power for <%= @character.name %></p>
+    </div>
+
+    <%= form_for [@character, @character_force_power] do |f| %>
+
+        <%= f.hidden_field :character_id, value: @character.id %>
+
+        <div class="form-field">
+            <%= f.collection_select(:force_power_id, @force_powers, :id, :name, {prompt: ""}, {class: "form-input select", autofocus: true}) %>
+            <p class="form-label">Force Power</p>
+        </div>
+
+        <%= f.submit "Submit", class: "button form-button success" %>
+    <% end %>
+
+    <div class="links">
+        <p><%= link_to "< View Character", character_path(@character) %></p>
+    </div>
+
+</section>

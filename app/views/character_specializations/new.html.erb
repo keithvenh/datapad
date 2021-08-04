@@ -9,7 +9,7 @@
         <%= f.hidden_field :character_id, value: @character.id %>
 
         <div class="form-field">
-            <%= f.collection_select(:specialization_id, @specializations, :id, :name, {prompt: ""}, {class: "form-input select"}) %>
+            <%= f.collection_select(:specialization_id, @specializations, :id, :name, {prompt: ""}, {class: "form-input select", autofocus: true}) %>
             <p class="form-label">Specialization</p>
         </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_231549) do
+ActiveRecord::Schema.define(version: 2021_08_04_004851) do
 
   create_table "books", force: :cascade do |t|
     t.string "game"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["career_id"], name: "index_character_careers_on_career_id"
     t.index ["character_id"], name: "index_character_careers_on_character_id"
+  end
+
+  create_table "character_force_powers", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "force_power_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_force_powers_on_character_id"
+    t.index ["force_power_id"], name: "index_character_force_powers_on_force_power_id"
   end
 
   create_table "character_skills", force: :cascade do |t|
@@ -105,6 +114,44 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
     t.string "species"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "force_power_upgrades", force: :cascade do |t|
+    t.integer "force_power_id", null: false
+    t.string "name"
+    t.integer "row"
+    t.integer "colStart"
+    t.integer "colSpan"
+    t.boolean "upLink1"
+    t.boolean "upLink2"
+    t.boolean "upLink3"
+    t.boolean "upLink4"
+    t.boolean "downLink1"
+    t.boolean "downLink2"
+    t.boolean "downLink3"
+    t.boolean "downLink4"
+    t.boolean "leftLink"
+    t.boolean "rightLink"
+    t.integer "cost"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["force_power_id"], name: "index_force_power_upgrades_on_force_power_id"
+  end
+
+  create_table "force_powers", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.string "name"
+    t.boolean "downLink1"
+    t.boolean "downLink2"
+    t.boolean "downLink3"
+    t.boolean "downLink4"
+    t.integer "force_rating"
+    t.integer "cost"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_force_powers_on_book_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -185,6 +232,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   add_foreign_key "careers", "books"
   add_foreign_key "character_careers", "careers"
   add_foreign_key "character_careers", "characters"
+  add_foreign_key "character_force_powers", "characters"
+  add_foreign_key "character_force_powers", "force_powers"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "character_skills", "skills"
   add_foreign_key "character_spec_talents", "characters"
@@ -193,6 +242,8 @@ ActiveRecord::Schema.define(version: 2021_02_15_231549) do
   add_foreign_key "character_specializations", "specializations"
   add_foreign_key "character_talents", "characters"
   add_foreign_key "character_talents", "talents"
+  add_foreign_key "force_power_upgrades", "force_powers"
+  add_foreign_key "force_powers", "books"
   add_foreign_key "specialization_skills", "skills"
   add_foreign_key "specialization_skills", "specializations"
   add_foreign_key "specialization_talents", "specializations"

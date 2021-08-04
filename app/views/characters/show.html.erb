@@ -48,6 +48,9 @@
             <ul class="character-links">
 
                 <li><%= link_to("New Specialization", new_character_character_specialization_path(@character)) %></li>
+                <% if @character.force_rating > 0 %>
+                    <li><%= link_to("New Force Power", new_character_character_force_power_path(@character)) %></li>
+                <% end %>
 
             </ul>
 
@@ -187,6 +190,18 @@
                 </div>
 
                 <% powers = @character.character_force_powers %>
+
+                <ul>
+
+                    <% powers.each do |power| %>
+                        <% fp = power.force_power%>
+                        <li class="character-talent">
+                            <h3 class="character-talent-name"><%= link_to(fp.name, edit_character_character_force_power_path(@character, power)) %></h3>
+                            <p class="character-talent-desc"><%= replace_dice(fp.description) %></p>
+                        </li>
+                    <% end %>
+
+                </ul>
             <% end %>
         </div>
 

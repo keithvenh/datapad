@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  force_power: one
+  name: MyString
+  row: 1
+  colStart: 1
+  colSpan: 1
+  upLink1: false
+  upLink2: false
+  upLink3: false
+  upLink4: false
+  downLink1: false
+  downLink2: false
+  downLink3: false
+  downLink4: false
+  leftLink: false
+  rightLink: false
+  cost: 1
+  description: MyText
+
+two:
+  force_power: two
+  name: MyString
+  row: 1
+  colStart: 1
+  colSpan: 1
+  upLink1: false
+  upLink2: false
+  upLink3: false
+  upLink4: false
+  downLink1: false
+  downLink2: false
+  downLink3: false
+  downLink4: false
+  leftLink: false
+  rightLink: false
+  cost: 1
+  description: MyText
