@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_004851) do
+ActiveRecord::Schema.define(version: 2021_08_04_025818) do
 
   create_table "books", force: :cascade do |t|
     t.string "game"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 2021_08_04_004851) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["career_id"], name: "index_character_careers_on_career_id"
     t.index ["character_id"], name: "index_character_careers_on_character_id"
+  end
+
+  create_table "character_force_power_upgrades", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "force_power_upgrade_id", null: false
+    t.boolean "purchased"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_force_power_upgrades_on_character_id"
+    t.index ["force_power_upgrade_id"], name: "index_character_force_power_upgrades_on_force_power_upgrade_id"
   end
 
   create_table "character_force_powers", force: :cascade do |t|
@@ -232,6 +242,8 @@ ActiveRecord::Schema.define(version: 2021_08_04_004851) do
   add_foreign_key "careers", "books"
   add_foreign_key "character_careers", "careers"
   add_foreign_key "character_careers", "characters"
+  add_foreign_key "character_force_power_upgrades", "characters"
+  add_foreign_key "character_force_power_upgrades", "force_power_upgrades"
   add_foreign_key "character_force_powers", "characters"
   add_foreign_key "character_force_powers", "force_powers"
   add_foreign_key "character_skills", "characters"
