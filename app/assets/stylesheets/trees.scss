@@ -93,7 +93,7 @@
     height: 5px;
     width: 10px;
     min-width: 10px;
-    background-color: $black;
+    background-color: $red;
 }
 
 .spec-talent-connected {
@@ -118,11 +118,33 @@
 
 // =========== FORCE POWERS =========== //
 
+.left-link-container {
+    height: 220px;
+}
+
 .force-power {
     border: 1px solid red;
     .row {
+        display: flex;
+        flex-direction: row;
         width: 100%;
         border: 1px solid blue;
+
+        .upgrade-container {
+            display: flex;
+            flex-direction: column;
+            .up-link-container, .down-link-container {
+                display: flex;
+                flex-direction: row;
+                
+                .connection-container {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
     }
     .connector-row {
         display: flex;

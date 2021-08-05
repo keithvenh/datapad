@@ -55,11 +55,66 @@
 
         <div class="row">
 
-            <div class="upgrade purchased-true">
+            <div class="left-link-container">
 
-                <p class="upgrade-heading"><%= @character_force_power.force_power.name %> Basic Power </p>
-                <p class="upgrade-desc"><%= replace_dice(@character_force_power.force_power.description) %></p>
-                
+                <div class="connect-left-false"></div>
+
+            </div>
+
+            <div class="upgrade-container colspan-4">
+
+                <div class="up-link-container">
+
+                    <% link = 1 %>
+                    <% 4.times do %>
+
+                        <% connected = false %>
+                        <% if link == 1 then connected = false end %>
+                        <% if link == 2 then connected = false end %>
+                        <% if link == 3 then connected = false end %>
+                        <% if link == 4 then connected = false end %>
+
+                        <div class="connection-container">
+                            <div class="connect-up-<%= connected %>"></div>
+                        </div>
+
+                        <% link = 0 %>
+
+                    <% end %>
+
+                </div>
+
+                <div class="upgrade purchased-true">
+
+                    <p class="upgrade-heading"><%= @character_force_power.force_power.name %> Basic Power </p>
+                    <p class="upgrade-desc"><%= replace_dice(@character_force_power.force_power.description) %></p>
+                    
+                </div>
+
+                <div class="upgrade-container colspan-4">
+
+                    <div class="down-link-container">
+
+                        <% link = 1 %>
+                        <% 4.times do %>
+
+                            <% connected = false %>
+                            <% if link == 1 then connected = @character_force_power.force_power.downLink1 end %>
+                            <% if link == 2 then connected = @character_force_power.force_power.downLink2 end %>
+                            <% if link == 3 then connected = @character_force_power.force_power.downLink3 end %>
+                            <% if link == 4 then connected = @character_force_power.force_power.downLink4 end %>
+                            
+                            <div class="connection-container">
+                                <div class="connect-down-<%= connected %>"></div>
+                            </div>
+
+                            <% link = 0 %>
+
+                        <% end %>
+
+                    </div>
+
+                </div>
             </div>
 
         </div>
