@@ -1,0 +1,89 @@
+<section>
+
+    <div class="section-header">
+        <p class="sw"><%= @character.name %></p>
+    </div>
+    <div class=" profile">
+
+        <div class="profile-image">
+
+            <%= image_tag("characters/#{@character.name.split(' ').join('_').downcase}.jpg", class: "profile-image") %>
+
+        </div>
+
+        <div class="profile-details">
+
+            <p class="sw profile-name"><%= link_to(@character.name, character_path(@character)) %></p>
+
+            <p class="profile-race"><%= @character.species %></p>
+
+            <p class="profile-career"><%= @character.career.name %></p>
+
+            <p class="specialization-title"><%= @character_force_power.force_power.name %></p>
+
+        </div>
+
+        <div class="delete_spec">
+            <%= link_to("Edit This Force Power", edit_character_character_force_power_path(@character, @character_force_power)) %>
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h3 class="tree-title"><%= @character_force_power.force_power.name %> BASIC POWER</h3>
+
+    <!--How to accomplish the tree...
+    div -> row
+        if row = row# do
+        div -> left-link-container height: 220px (heght of box plus up and down link)
+            div -> left-link true or false
+        div -> upgrade-container
+            div -> up-link-container
+                colSpan.times div -> up-link true or false
+            div -> upgrade
+                p -> upgrade header
+                p -> upgrade description
+            div -> down-link-container
+                colSpan.times div -> down-link true or false
+        div -> right-link-container height:220px (height of box plus up and down link)
+    -->
+
+    <div class="force-power">
+
+        <div class="row">
+
+            <div class="upgrade purchased-true">
+
+                <p class="upgrade-heading"><%= @character_force_power.force_power.name %> Basic Power </p>
+                <p class="upgrade-desc"><%= replace_dice(@character_force_power.force_power.description) %></p>
+                
+            </div>
+
+        </div>
+
+        <div class="connector-row">
+
+            <div class="connect-down-<%= @character_force_power.force_power.downLink1 %>">
+
+            </div>
+
+            <div class="connect-down-<%= @character_force_power.force_power.downLink2 %>">
+
+            </div>
+
+            <div class="connect-down-<%= @character_force_power.force_power.downLink3 %>">
+
+            </div>
+
+            <div class="connect-down-<%= @character_force_power.force_power.downLink4 %>">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

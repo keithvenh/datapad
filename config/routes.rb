@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :character_specializations, only: [:new, :create, :show, :edit, :update, :destroy]
     resources :character_talents, only: [:new, :create, :edit, :update, :destroy, :index]
     resources :character_spec_talents, only: [:edit, :update]
-    resources :character_force_powers, only: [:new, :create, :edit, :update, :destroy]
+    resources :character_force_powers, only: [:new, :create, :show, :edit, :update, :destroy]
   end
 end

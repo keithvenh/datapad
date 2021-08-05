@@ -86,7 +86,7 @@
     height: 10px;
     width: 5px;
     min-width: 5x;
-    background-color: $black;
+    background-color: $red;
 }
 
 .connect-left-false, .connect-right-false {
@@ -114,4 +114,93 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+// =========== FORCE POWERS =========== //
+
+.force-power {
+    border: 1px solid red;
+    .row {
+        width: 100%;
+        border: 1px solid blue;
+    }
+    .connector-row {
+        display: flex;
+        justify-content: space-evenly;
+        border: 1px solid green;
+        .connect-down-true {
+            background-color: rgba(115,139,90,1);
+        }
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .colspan-1 {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .colspan-2 {
+        width: 45%;
+    }
+
+    .colspan-3 {
+        width: 75%;
+    }
+
+    .colspan-4 {
+        width: 100%;
+    }
+}
+
+.upgrade {
+    height: 200px;
+    width: 100%;
+    overflow-y: hidden;
+    font-size: 12px;
+    box-sizing: border-box;
+    border: 2px double rgba(115,139,90,0.3);
+}
+
+.upgrade.purchased-true {
+    border: 2px double rgba(115,139,90,1);
+
+    .upgrade-heading {
+        border-bottom: 2px solid $white;
+        color: $white;
+        background-color: rgba(6,43,1,1);
+    }
+
+    .upgrade-desc {
+        background-color: #e6d6c6;
+        color: $black;
+    }
+}
+
+.upgrade-heading {
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 6px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(255,255,255,0.3);
+    background-color: rgba(6,43,1,0.3);
+}
+
+.upgrade-desc {
+    padding: 6px;
+    line-height: 1.2em;
+    background-color: rgba(48, 48, 48, 0.3);
+    color: rgba(255,255,255,0.3);
+    height: 100%;
+}
+
+.force-power-upgrade.purchased-true {
+    .connect-up-true, .connect-down-true, .connect-left-true, .connect-right-true {
+        background-color: #e6d6c6;
+    }
 }

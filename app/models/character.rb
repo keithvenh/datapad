@@ -14,4 +14,7 @@ class Character < ApplicationRecord
 
     has_many :character_force_powers, dependent: :delete_all
     has_many :force_powers, through: :character_force_powers
+
+    has_many :character_force_power_upgrades, dependent: :delete_all
+    has_many :force_power_upgrades, through: :character_force_power_upgrades
 end

@@ -196,7 +196,7 @@
                     <% powers.each do |power| %>
                         <% fp = power.force_power%>
                         <li class="character-talent">
-                            <h3 class="character-talent-name"><%= link_to(fp.name, edit_character_character_force_power_path(@character, power)) %></h3>
+                            <h3 class="character-talent-name"><%= link_to(fp.name, character_character_force_power_path(@character, power)) %></h3>
                             <p class="character-talent-desc"><%= replace_dice(fp.description) %></p>
                         </li>
                     <% end %>

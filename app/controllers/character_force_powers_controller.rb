@@ -11,7 +11,7 @@ class CharacterForcePowersController < ApplicationController
         @character_force_power = CharacterForcePower.new(character_force_power_params)
     if @character_force_power.save!
         flash[:notice] = "You have successfully added #{@character_force_power.force_power.name} to #{@character.name}"
-        # add_character_specialization_talents(@character, @character_specialization.specialization)
+        add_character_force_power_upgrades(@character, @character_force_power.force_power)
         redirect_to character_path(@character)
     else
         flash.now[:alert] = "Beep Boop. Something went wrong."
@@ -19,10 +19,10 @@ class CharacterForcePowersController < ApplicationController
     end
     end
     
-    #   def show
-    #     @character = find_character
-    #     @character_specialization = CharacterSpecialization.find(params[:id])
-    #   end
+    def show
+        @character = find_character
+        @character_force_power = CharacterForcePower.find(params[:id])
+    end
     
     def edit
         @character = find_character
@@ -61,17 +61,17 @@ class CharacterForcePowersController < ApplicationController
           Character.find(params[:character_id])
         end
     
-    #     def add_character_specialization_talents(character, specialization)
+        def add_character_force_power_upgrades(character, force_power)
     
-    #       specialization.specialization_talents.each do |spec_talent|
+          force_power.force_power_upgrades.each do |upgrade|
     
-    #         CharacterSpecTalent.create!(
-    #           character: character,
-    #           specialization_talent: spec_talent,
-    #           purchased: false
-    #         )
+            CharacterForcePowerUpgrade.create!(
+              character: character,
+              force_power_upgrade: upgrade,
+              purchased: false
+            )
     
-    #       end
+          end
     
-    #     end
+        end
 end
