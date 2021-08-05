@@ -1,0 +1,33 @@
+<section class="form">
+
+    <div class="form-header">
+        <p class="sw">Edit Talent for <%= @character.name %></p>
+    </div>
+
+    <%= form_for [@character, @character_force_power_upgrade] do |f| %>
+
+        <%= f.hidden_field :character_id, value: @character.id %>
+
+        <%= f.hidden_field :force_power_upgrade_id, value: @character_force_power_upgrade.force_power_upgrade.id %>
+
+        <div class="form-field">
+            <p class="form-input"><%= @character_force_power_upgrade.force_power_upgrade.name %></p>
+            <p class="form-label">Upgrade</p>
+        </div>
+
+        <div class="form-field">
+            <p class="form-input"><%= @character_force_power_upgrade.force_power_upgrade.cost %>XP</p>
+            <p class="form-label">Cost</p>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :purchased,  class: "boolean"%> Purchased?</p>
+            </div>
+        </div>
+
+        <%= f.submit "Submit", class: "button form-button success" %>
+
+    <% end %>
+
+</section>

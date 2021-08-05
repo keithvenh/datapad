@@ -86,14 +86,14 @@
     height: 10px;
     width: 5px;
     min-width: 5x;
-    background-color: $red;
+    background-color: $black;
 }
 
 .connect-left-false, .connect-right-false {
     height: 5px;
     width: 10px;
     min-width: 10px;
-    background-color: $red;
+    background-color: $black;
 }
 
 .spec-talent-connected {
@@ -117,68 +117,6 @@
 }
 
 // =========== FORCE POWERS =========== //
-
-.left-link-container {
-    height: 220px;
-}
-
-.force-power {
-    border: 1px solid red;
-    .row {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        border: 1px solid blue;
-
-        .upgrade-container {
-            display: flex;
-            flex-direction: column;
-            .up-link-container, .down-link-container {
-                display: flex;
-                flex-direction: row;
-                
-                .connection-container {
-                    flex: 1;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-            }
-        }
-    }
-    .connector-row {
-        display: flex;
-        justify-content: space-evenly;
-        border: 1px solid green;
-        .connect-down-true {
-            background-color: rgba(115,139,90,1);
-        }
-    }
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .colspan-1 {
-        width: 20%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .colspan-2 {
-        width: 45%;
-    }
-
-    .colspan-3 {
-        width: 75%;
-    }
-
-    .colspan-4 {
-        width: 100%;
-    }
-}
 
 .upgrade {
     height: 200px;
@@ -221,8 +159,68 @@
     height: 100%;
 }
 
+.left-link-container, .right-link-container {
+    height: 220px;
+    display: flex;
+    align-items: center;
+}
+
 .force-power-upgrade.purchased-true {
-    .connect-up-true, .connect-down-true, .connect-left-true, .connect-right-true {
-        background-color: #e6d6c6;
+    .left-link-container, .right-link-container {
+        .connect-left-true, .connect-right-true {
+            background-color: rgba(115,138,90,1);
+        }
     }
+    .upgrade-container {
+        .up-link-container, .down-link-container {
+            .connection-container {
+                .connect-up-true, .connect-down-true {
+                    background-color: rgba(115,138,90,1);
+                }
+            }
+        }
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.force-power-upgrade {
+    display: flex;
+    flex-direction: row;
+    .upgrade-container {
+        display: flex;
+        flex-direction: column;
+        &.colspan-4, &.colspan-2, &.colspan-3 {
+            .up-link-container, .down-link-container {
+                
+                .connection-container:not(:last-child) {
+                    margin-right: 20px;
+                }
+            }
+        }
+        .up-link-container, .down-link-container {
+            display: flex;
+            flex-direction: row;
+            .connection-container {
+                display: flex;
+                justify-content: center;
+                flex: 1;
+            }
+        }
+    }
+}
+
+.force-power-upgrade.colspan-1 {
+    width: 25%;
+}
+
+.force-power-upgrade.colspan-2 {
+    width: 50%;
+}
+
+.force-power-upgrade.colspan-3 {
+    width: 75%;
 }

@@ -55,43 +55,43 @@
 
         <div class="row">
 
-            <div class="left-link-container">
+            <div class="force-power-upgrade purchased-true">
 
-                <div class="connect-left-false"></div>
+                <div class="left-link-container">
 
-            </div>
+                    <div class="connect-left-false"></div>
 
-            <div class="upgrade-container colspan-4">
-
-                <div class="up-link-container">
-
-                    <% link = 1 %>
-                    <% 4.times do %>
-
-                        <% connected = false %>
-                        <% if link == 1 then connected = false end %>
-                        <% if link == 2 then connected = false end %>
-                        <% if link == 3 then connected = false end %>
-                        <% if link == 4 then connected = false end %>
-
-                        <div class="connection-container">
-                            <div class="connect-up-<%= connected %>"></div>
-                        </div>
-
-                        <% link = 0 %>
-
-                    <% end %>
-
-                </div>
-
-                <div class="upgrade purchased-true">
-
-                    <p class="upgrade-heading"><%= @character_force_power.force_power.name %> Basic Power </p>
-                    <p class="upgrade-desc"><%= replace_dice(@character_force_power.force_power.description) %></p>
-                    
                 </div>
 
                 <div class="upgrade-container colspan-4">
+
+                    <div class="up-link-container">
+
+                        <% link = 1 %>
+                        <% 4.times do %>
+
+                            <% connected = false %>
+                            <% if link == 1 then connected = false end %>
+                            <% if link == 2 then connected = false end %>
+                            <% if link == 3 then connected = false end %>
+                            <% if link == 4 then connected = false end %>
+
+                            <div class="connection-container">
+                                <div class="connect-up-<%= connected %>"></div>
+                            </div>
+
+                            <% link += 1 %>
+
+                        <% end %>
+
+                    </div>
+
+                    <div class="upgrade purchased-true">
+
+                        <p class="upgrade-heading"><%= @character_force_power.force_power.name %> Basic Power </p>
+                        <p class="upgrade-desc"><%= replace_dice(@character_force_power.force_power.description) %></p>
+                        
+                    </div>
 
                     <div class="down-link-container">
 
@@ -108,37 +108,352 @@
                                 <div class="connect-down-<%= connected %>"></div>
                             </div>
 
-                            <% link = 0 %>
+                            <% link += 1 %>
 
                         <% end %>
 
                     </div>
+                
+                </div>
+
+            </div>
+
+            <div class="right-link-container">
+
+                <div class="connect-right-false"></div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <% row2 = @character_force_power.force_power.force_power_upgrades.where(row: 2) %>
+
+            <% row2.each do |upgrade| %>
+
+                <% char_fp_upgrade = CharacterForcePowerUpgrade.where(character: @character, force_power_upgrade: upgrade).first %>
+
+                <div class="force-power-upgrade purchased-<%= char_fp_upgrade.purchased %> colspan-<%= upgrade.colSpan %>">
+
+                    <div class="left-link-container">
+
+                        <div class="connect-left-<%= upgrade.leftLink %>"></div>
+
+                    </div>
+
+                    <div class="upgrade-container colspan-<%= upgrade.colSpan %>">
+
+                        <div class="up-link-container">
+                            <% link = upgrade.colStart %>
+                            <% upgrade.colSpan.times do %>
+
+                                <% connected = false %>
+                                <% if link == 1 then connected = upgrade.upLink1 end %>
+                                <% if link == 2 then connected = upgrade.upLink2 end %>
+                                <% if link == 3 then connected = upgrade.upLink3 end %>
+                                <% if link == 4 then connected = upgrade.upLink4 end %>
+
+                                <div class="connection-container">
+                                    <div class="connect-up-<%= connected %>"></div>
+                                </div>
+
+                                <% link += 1 %>
+
+                            <% end %>
+
+                        </div>
+
+                        <%= link_to edit_character_character_force_power_upgrade_path(@character, char_fp_upgrade) do %>
+                            <div class="upgrade purchased-<%= char_fp_upgrade.purchased %>">
+
+                                <p class="upgrade-heading"><%= upgrade.name %> Basic Power </p>
+                                <p class="upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+
+                            </div>
+                        <% end %>
+
+                        <div class="down-link-container">
+
+                            <% link = upgrade.colStart %>
+                            <% upgrade.colSpan.times do %>
+
+                                <% connected = false %>
+                                <% if link == 1 then connected = upgrade.downLink1 end %>
+                                <% if link == 2 then connected = upgrade.downLink2 end %>
+                                <% if link == 3 then connected = upgrade.downLink3 end %>
+                                <% if link == 4 then connected = upgrade.downLink4 end %>
+
+                                <div class="connection-container">
+                                    <div class="connect-up-<%= connected %>"></div>
+                                </div>
+
+                                <% link += 1 %>
+
+                            <% end %>
+
+                        </div>
+
+                    </div>
+
+                    <div class ="right-link-container">
+
+                        <div class="connect-right-<%= upgrade.rightLink %>"></div>
+
+                    </div>
 
                 </div>
-            </div>
+
+            <% end %>
 
         </div>
 
-        <div class="connector-row">
+        <div class="row">
 
-            <div class="connect-down-<%= @character_force_power.force_power.downLink1 %>">
+            <% row3 = @character_force_power.force_power.force_power_upgrades.where(row: 3) %>
 
-            </div>
+            <% row3.each do |upgrade| %>
 
-            <div class="connect-down-<%= @character_force_power.force_power.downLink2 %>">
+                <% char_fp_upgrade = CharacterForcePowerUpgrade.where(character: @character, force_power_upgrade: upgrade).first %>
 
-            </div>
+                <div class="force-power-upgrade purchased-<%= char_fp_upgrade.purchased %> colspan-<%= upgrade.colSpan %>">
 
-            <div class="connect-down-<%= @character_force_power.force_power.downLink3 %>">
+                    <div class="left-link-container">
 
-            </div>
+                        <div class="connect-left-<%= upgrade.leftLink %>"></div>
 
-            <div class="connect-down-<%= @character_force_power.force_power.downLink4 %>">
+                    </div>
 
-            </div>
+                    <div class="upgrade-container colspan-<%= upgrade.colSpan %>">
+
+                        <div class="up-link-container">
+                            <% link = upgrade.colStart %>
+                            <% upgrade.colSpan.times do %>
+
+                                <% connected = false %>
+                                <% if link == 1 then connected = upgrade.upLink1 end %>
+                                <% if link == 2 then connected = upgrade.upLink2 end %>
+                                <% if link == 3 then connected = upgrade.upLink3 end %>
+                                <% if link == 4 then connected = upgrade.upLink4 end %>
+
+                                <div class="connection-container">
+                                    <div class="connect-up-<%= connected %>"></div>
+                                </div>
+
+                                <% link += 1 %>
+
+                            <% end %>
+
+                        </div>
+
+                        <%= link_to edit_character_character_force_power_upgrade_path(@character, char_fp_upgrade) do %>
+                            <div class="upgrade purchased-<%= char_fp_upgrade.purchased %>">
+
+                                <p class="upgrade-heading"><%= upgrade.name %> Basic Power </p>
+                                <p class="upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+
+                            </div>
+                        <% end %>
+
+                        <div class="down-link-container">
+
+                            <% link = upgrade.colStart %>
+                            <% upgrade.colSpan.times do %>
+
+                                <% connected = false %>
+                                <% if link == 1 then connected = upgrade.downLink1 end %>
+                                <% if link == 2 then connected = upgrade.downLink2 end %>
+                                <% if link == 3 then connected = upgrade.downLink3 end %>
+                                <% if link == 4 then connected = upgrade.downLink4 end %>
+
+                                <div class="connection-container">
+                                    <div class="connect-up-<%= connected %>"></div>
+                                </div>
+
+                                <% link += 1 %>
+
+                            <% end %>
+
+                        </div>
+
+                    </div>
+
+                    <div class ="right-link-container">
+
+                        <div class="connect-right-<%= upgrade.rightLink %>"></div>
+
+                    </div>
+
+                </div>
+
+            <% end %>
 
         </div>
 
+        <div class="row">
+
+            <% row4 = @character_force_power.force_power.force_power_upgrades.where(row: 4) %>
+
+            <% row4.each do |upgrade| %>
+
+                <% char_fp_upgrade = CharacterForcePowerUpgrade.where(character: @character, force_power_upgrade: upgrade).first %>
+
+                <div class="force-power-upgrade purchased-<%= char_fp_upgrade.purchased %> colspan-<%= upgrade.colSpan %>">
+
+                    <div class="left-link-container">
+
+                        <div class="connect-left-<%= upgrade.leftLink %>"></div>
+
+                    </div>
+
+                    <div class="upgrade-container colspan-<%= upgrade.colSpan %>">
+
+                        <div class="up-link-container">
+                            <% link = upgrade.colStart %>
+                            <% upgrade.colSpan.times do %>
+
+                                <% connected = false %>
+                                <% if link == 1 then connected = upgrade.upLink1 end %>
+                                <% if link == 2 then connected = upgrade.upLink2 end %>
+                                <% if link == 3 then connected = upgrade.upLink3 end %>
+                                <% if link == 4 then connected = upgrade.upLink4 end %>
+
+                                <div class="connection-container">
+                                    <div class="connect-up-<%= connected %>"></div>
+                                </div>
+
+                                <% link += 1 %>
+
+                            <% end %>
+
+                        </div>
+
+                        <%= link_to edit_character_character_force_power_upgrade_path(@character, char_fp_upgrade) do %>
+                            <div class="upgrade purchased-<%= char_fp_upgrade.purchased %>">
+
+                                <p class="upgrade-heading"><%= upgrade.name %> Basic Power </p>
+                                <p class="upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+
+                            </div>
+                        <% end %>
+
+                        <div class="down-link-container">
+
+                            <% link = upgrade.colStart %>
+                            <% upgrade.colSpan.times do %>
+
+                                <% connected = false %>
+                                <% if link == 1 then connected = upgrade.downLink1 end %>
+                                <% if link == 2 then connected = upgrade.downLink2 end %>
+                                <% if link == 3 then connected = upgrade.downLink3 end %>
+                                <% if link == 4 then connected = upgrade.downLink4 end %>
+
+                                <div class="connection-container">
+                                    <div class="connect-up-<%= connected %>"></div>
+                                </div>
+
+                                <% link += 1 %>
+
+                            <% end %>
+
+                        </div>
+
+                    </div>
+
+                    <div class ="right-link-container">
+
+                        <div class="connect-right-<%= upgrade.rightLink %>"></div>
+
+                    </div>
+
+                </div>
+
+            <% end %>
+
+        </div>
+
+        <div class="row">
+
+            <% row5 = @character_force_power.force_power.force_power_upgrades.where(row: 5) %>
+
+            <% row5.each do |upgrade| %>
+
+                <% char_fp_upgrade = CharacterForcePowerUpgrade.where(character: @character, force_power_upgrade: upgrade).first %>
+
+                <div class="force-power-upgrade purchased-<%= char_fp_upgrade.purchased %> colspan-<%= upgrade.colSpan %>">
+
+                    <div class="left-link-container">
+
+                        <div class="connect-left-<%= upgrade.leftLink %>"></div>
+
+                    </div>
+
+                    <div class="upgrade-container colspan-<%= upgrade.colSpan %>">
+
+                        <div class="up-link-container">
+                            <% link = upgrade.colStart %>
+                            <% upgrade.colSpan.times do %>
+
+                                <% connected = false %>
+                                <% if link == 1 then connected = upgrade.upLink1 end %>
+                                <% if link == 2 then connected = upgrade.upLink2 end %>
+                                <% if link == 3 then connected = upgrade.upLink3 end %>
+                                <% if link == 4 then connected = upgrade.upLink4 end %>
+
+                                <div class="connection-container">
+                                    <div class="connect-up-<%= connected %>"></div>
+                                </div>
+
+                                <% link += 1 %>
+
+                            <% end %>
+
+                        </div>
+
+                        <%= link_to edit_character_character_force_power_upgrade_path(@character, char_fp_upgrade) do %>
+                            <div class="upgrade purchased-<%= char_fp_upgrade.purchased %>">
+
+                                <p class="upgrade-heading"><%= upgrade.name %> Basic Power </p>
+                                <p class="upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+
+                            </div>
+                        <% end %>
+
+                        <div class="down-link-container">
+
+                            <% link = upgrade.colStart %>
+                            <% upgrade.colSpan.times do %>
+
+                                <% connected = false %>
+                                <% if link == 1 then connected = upgrade.downLink1 end %>
+                                <% if link == 2 then connected = upgrade.downLink2 end %>
+                                <% if link == 3 then connected = upgrade.downLink3 end %>
+                                <% if link == 4 then connected = upgrade.downLink4 end %>
+
+                                <div class="connection-container">
+                                    <div class="connect-up-<%= connected %>"></div>
+                                </div>
+
+                                <% link += 1 %>
+
+                            <% end %>
+
+                        </div>
+
+                    </div>
+
+                    <div class ="right-link-container">
+
+                        <div class="connect-right-<%= upgrade.rightLink %>"></div>
+
+                    </div>
+
+                </div>
+
+            <% end %>
+
+        </div>
+        
     </div>
 
 </section>
