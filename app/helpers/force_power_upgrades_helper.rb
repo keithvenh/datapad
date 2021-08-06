@@ -1,0 +1,2 @@
+module ForcePowerUpgradesHelper
+end

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  
+  <%= render "html_head" %>
+
+  <body class="<%= controller_name %> <%= action_name %>">
+
+    <div class="datapad admin" id="datapad">
+      
+      <%= yield %>
+
+    </div>
+  </body>
+</html>

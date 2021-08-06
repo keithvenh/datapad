@@ -159,73 +159,81 @@ require 'csv'
 
 # end
 
-force_powers = CSV.parse(File.read('db/force_powers.csv', encoding: 'bom|utf-8'), headers: true)
-force_powers.each do |row|
-    book = Book.where(game: row['Game'], title: 'Core Rulebook').first
-    downLink1 = false
-    downLink2 = false
-    downLink3 = false
-    downLink4 = false
-    if row['DownLink1'] == '1' then downLink1 = true end
-    if row['DownLink2'] == '1' then downLink2 = true end
-    if row['DownLink3'] == '1' then downLink3 = true end
-    if row['DownLink4'] == '1' then downLink4 = true end
+# force_powers = CSV.parse(File.read('db/force_powers.csv', encoding: 'bom|utf-8'), headers: true)
+# force_powers.each do |row|
+#     book = Book.where(game: row['Game'], title: 'Core Rulebook').first
+#     downLink1 = false
+#     downLink2 = false
+#     downLink3 = false
+#     downLink4 = false
+#     if row['DownLink1'] == '1' then downLink1 = true end
+#     if row['DownLink2'] == '1' then downLink2 = true end
+#     if row['DownLink3'] == '1' then downLink3 = true end
+#     if row['DownLink4'] == '1' then downLink4 = true end
 
-    ForcePower.create!(
-        book: book,
-        name: row['Name'],
-        force_rating: row['ForceRating'],
-        cost: row['Cost'],
-        downLink1: downLink1,
-        downLink2: downLink2,
-        downLink3: downLink3,
-        downLink4: downLink4,
-        description: row['Description']
-    )
-end
+#     ForcePower.create!(
+#         book: book,
+#         name: row['Name'],
+#         force_rating: row['ForceRating'],
+#         cost: row['Cost'],
+#         downLink1: downLink1,
+#         downLink2: downLink2,
+#         downLink3: downLink3,
+#         downLink4: downLink4,
+#         description: row['Description']
+#     )
+# end
 
-force_power_upgrades = CSV.parse(File.read('db/force_power_upgrades.csv', encoding: 'bom|utf-8'), headers: true)
-force_power_upgrades.each do |row|
-    force_power = ForcePower.find_by(name: row['ForcePower'])
-    upLink1 = false
-    upLink2 = false
-    upLink3 = false
-    upLink4 = false
-    downLink1 = false
-    downLink2 = false
-    downLink3 = false
-    downLink4 = false
-    leftLink = false
-    rightLink = false
-    if row['UpLink1'] == '1' then upLink1 = true end
-    if row['UpLink2'] == '1' then upLink2 = true end
-    if row['UpLink3'] == '1' then upLink3 = true end
-    if row['UpLink4'] == '1' then upLink4 = true end
-    if row['DownLink1'] == '1' then downLink1 = true end
-    if row['DownLink2'] == '1' then downLink2 = true end
-    if row['DownLink3'] == '1' then downLink3 = true end
-    if row['DownLink4'] == '1' then downLink4 = true end
-    if row['LeftLink'] == '1' then leftLink = true end
-    if row['RightLink'] == '1' then rightLink = true end
+# force_power_upgrades = CSV.parse(File.read('db/force_power_upgrades.csv', encoding: 'bom|utf-8'), headers: true)
+# force_power_upgrades.each do |row|
+#     force_power = ForcePower.find_by(name: row['ForcePower'])
+#     upLink1 = false
+#     upLink2 = false
+#     upLink3 = false
+#     upLink4 = false
+#     downLink1 = false
+#     downLink2 = false
+#     downLink3 = false
+#     downLink4 = false
+#     leftLink = false
+#     rightLink = false
+#     if row['UpLink1'] == '1' then upLink1 = true end
+#     if row['UpLink2'] == '1' then upLink2 = true end
+#     if row['UpLink3'] == '1' then upLink3 = true end
+#     if row['UpLink4'] == '1' then upLink4 = true end
+#     if row['DownLink1'] == '1' then downLink1 = true end
+#     if row['DownLink2'] == '1' then downLink2 = true end
+#     if row['DownLink3'] == '1' then downLink3 = true end
+#     if row['DownLink4'] == '1' then downLink4 = true end
+#     if row['LeftLink'] == '1' then leftLink = true end
+#     if row['RightLink'] == '1' then rightLink = true end
 
-    ForcePowerUpgrade.create!(
-        force_power: force_power,
-        name: row['Upgrade'],
-        cost: row['Cost'],
-        row: row['Row'].to_i,
-        colStart: row['ColStart'].to_i,
-        colSpan: row['ColSpan'].to_i,
-        upLink1: upLink1,
-        upLink2: upLink2,
-        upLink3: upLink3,
-        upLink4: upLink4,
-        downLink1: downLink1,
-        downLink2: downLink2,
-        downLink3: downLink3,
-        downLink4: downLink4,
-        leftLink: leftLink,
-        rightLink: rightLink,
-        description: row['Description']
-    )
+#     ForcePowerUpgrade.create!(
+#         force_power: force_power,
+#         name: row['Upgrade'],
+#         cost: row['Cost'],
+#         row: row['Row'].to_i,
+#         colStart: row['ColStart'].to_i,
+#         colSpan: row['ColSpan'].to_i,
+#         upLink1: upLink1,
+#         upLink2: upLink2,
+#         upLink3: upLink3,
+#         upLink4: upLink4,
+#         downLink1: downLink1,
+#         downLink2: downLink2,
+#         downLink3: downLink3,
+#         downLink4: downLink4,
+#         leftLink: leftLink,
+#         rightLink: rightLink,
+#         description: row['Description']
+#     )
 
-end
+# end
+
+keith = User.find_by(email: 'keith@datapad.io')
+keith.admin = true
+keith.save!
+
+zack = User.find_by(email: 'zack@datapad.io')
+zack.admin = true
+zack.save!

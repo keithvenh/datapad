@@ -11,4 +11,15 @@ class PagesController < ApplicationController
     @specialization = Specialization.find_by(name: "Peacekeeper")
 
   end
+
+  def admin
+    render layout: 'admin'
+
+    if @user.admin != true
+      flash[:alert] = "You are not authorized to access this area"
+      redirect_to root_url
+    end
+    
+  end
+
 end

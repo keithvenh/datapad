@@ -1,0 +1,2 @@
+module SpecializationSkillsHelper
+end
