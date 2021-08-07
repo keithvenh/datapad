@@ -1,0 +1,61 @@
+<section class="form">
+
+    <div class="form-header">
+        <p>Edit <%= @specialization_talent.talent.name %> for <%= @specialization.name %></p>
+    </div>
+
+    <%= form_for [@specialization, @specialization_talent] do |f| %>
+
+        <%= f.hidden_field :specialization_id, value: @specialization.id %>
+
+        <%= f.hidden_field :talent_id, value: @specialization_talent.talent.id %>
+
+        <div class="form-field">
+            <%= f.text_field :cost, class: "form-input integer" %>
+            <p class="form-label">Cost</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :row, class: "form-input integer" %>
+            <p class="form-label">Row</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :colStart, class: "form-input integer" %>
+            <p class="form-label">colStart</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :colSpan, class: "form-input integer" %>
+            <p class="form-label">colSpan</p>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :upLink,  class: "boolean"%> Up Link</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :downLink,  class: "boolean"%> Down Link</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :leftLink,  class: "boolean"%> Left Link</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :rightLink,  class: "boolean"%> Right Link</p>
+            </div>
+        </div>
+
+        <%= f.submit "Save", class: "button form-button success" %>
+
+    <% end %>
+
+</section>
