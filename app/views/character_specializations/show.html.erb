@@ -56,7 +56,8 @@
 
                             </p>
 
-                            <p class="talent-short-desc"><%= replace_dice(spec_talent.talent.shortDesc) %>
+                            <p class="talent-short-desc"><%= replace_dice(spec_talent.talent.shortDesc) %></p>
+                            <p class="talent-cost"><span class="talent-xp active-<%= spec_talent.talent.active %>"><%= spec_talent.cost %> XP</span></p>
                         </div>
                     <% end %>
 

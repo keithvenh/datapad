@@ -35,22 +35,6 @@
 
     <h3 class="tree-title"><%= @character_force_power.force_power.name %> BASIC POWER</h3>
 
-    <!--How to accomplish the tree...
-    div -> row
-        if row = row# do
-        div -> left-link-container height: 220px (heght of box plus up and down link)
-            div -> left-link true or false
-        div -> upgrade-container
-            div -> up-link-container
-                colSpan.times div -> up-link true or false
-            div -> upgrade
-                p -> upgrade header
-                p -> upgrade description
-            div -> down-link-container
-                colSpan.times div -> down-link true or false
-        div -> right-link-container height:220px (height of box plus up and down link)
-    -->
-
     <div class="force-power">
 
         <div class="row">
@@ -90,6 +74,7 @@
 
                         <p class="upgrade-heading"><%= @character_force_power.force_power.name %> Basic Power </p>
                         <p class="upgrade-desc"><%= replace_dice(@character_force_power.force_power.description) %></p>
+                        <p class="upgrade-cost"><span class="upgrade-xp"><%= @character_force_power.force_power.cost %> XP</span></p>
                         
                     </div>
 
@@ -169,6 +154,7 @@
 
                                 <p class="upgrade-heading"><%= upgrade.name %> Basic Power </p>
                                 <p class="upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+                                <p class="upgrade-cost"><span class="upgrade-xp"><%= upgrade.cost %> XP</span></p>
 
                             </div>
                         <% end %>
@@ -251,6 +237,7 @@
 
                                 <p class="upgrade-heading"><%= upgrade.name %> Basic Power </p>
                                 <p class="upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+                                <p class="upgrade-cost"><span class="upgrade-xp"><%= upgrade.cost %> XP</span></p>
 
                             </div>
                         <% end %>
@@ -333,6 +320,7 @@
 
                                 <p class="upgrade-heading"><%= upgrade.name %> Basic Power </p>
                                 <p class="upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+                                <p class="upgrade-cost"><span class="upgrade-xp"><%= upgrade.cost %> XP</span></p>
 
                             </div>
                         <% end %>
@@ -415,6 +403,7 @@
 
                                 <p class="upgrade-heading"><%= upgrade.name %> Basic Power </p>
                                 <p class="upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+                                <p class="upgrade-cost"><span class="upgrade-xp"><%= upgrade.cost %> XP</span></p>
 
                             </div>
                         <% end %>

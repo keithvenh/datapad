@@ -166,7 +166,7 @@
                 <p>Talents</p>
             </div>
 
-            <% talents = @character.character_talents %>
+            <% talents = @character.character_talents.includes(:talent).order("talents.name") %>
 
             <ul>
 
@@ -190,7 +190,7 @@
                     <p>Force Powers</p>
                 </div>
 
-                <% powers = @character.character_force_powers %>
+                <% powers = @character.character_force_powers.includes(:force_power).order("force_powers.name") %>
 
                 <ul>
 

@@ -13,6 +13,8 @@
     font-size: 12px;
     box-sizing: border-box;
     border: 2px double rgba(94,83,75,0.3);
+    display: flex;
+    flex-direction: column;
 }
 
 .talent.purchased-true {
@@ -31,9 +33,21 @@
         background-color: rgba(89, 19, 19, 1);
     }
 
-    .talent-short-desc {
+    .talent-short-desc, .talent-cost {
         background-color: #e6d6c6;
         color: $black;
+    }
+
+    .talent-xp {
+        color: $white;
+    }
+    
+    .talent-xp.active-false {
+        background-color: rgba(35, 35, 47, 1);
+    }
+    
+    .talent-xp.active-true {
+        background-color: rgba(89,19,19,1);
     }
 }
 
@@ -65,7 +79,27 @@
     line-height: 1.2em;
     background-color: rgba(48, 48, 48, 0.3);
     color: rgba(255,255,255,0.3);
-    height: 100%;
+    max-height: 100%;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+.talent-cost {
+    background-color: rgba(48, 48, 48, 0.3);
+}
+
+.talent-xp {
+    float: right;
+    padding: 6px;
+    color: rgba(255,255,255,0.3);
+}
+
+.talent-xp.active-false {
+    background-color: rgba(35, 35, 47, 0.3);
+}
+
+.talent-xp.active-true {
+    background-color: rgba(89,19,19,0.3);
 }
 
 .connect-up-true, .connect-down-true {
@@ -125,6 +159,8 @@
     font-size: 12px;
     box-sizing: border-box;
     border: 2px double rgba(115,139,90,0.3);
+    display: flex;
+    flex-direction: column;
 }
 
 .upgrade.purchased-true {
@@ -139,6 +175,17 @@
     .upgrade-desc {
         background-color: #e6d6c6;
         color: $black;
+    }
+
+    .upgrade-cost {
+        background-color: #e6d6c6;
+    }
+    
+    .upgrade-xp {
+        background-color: rgba(6,43,1,1);
+        float: right;
+        padding: 6px;
+        color: $white;
     }
 }
 
@@ -157,6 +204,17 @@
     background-color: rgba(48, 48, 48, 0.3);
     color: rgba(255,255,255,0.3);
     height: 100%;
+}
+
+.upgrade-cost {
+    background-color: rgba(48, 48, 48, 0.3);
+}
+
+.upgrade-xp {
+    background-color: rgba(6,43,1,0.3);
+    float: right;
+    padding: 6px;
+    color: rgba(255,255,255,0.3);
 }
 
 .left-link-container, .right-link-container {
