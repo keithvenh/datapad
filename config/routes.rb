@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     resources :career_skills, only: [:edit, :update]
   end
 
-  resources :talents, only: [:index, :edit, :update, :destroy]
-  resources :books, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :talents, only: [:index, :edit, :update]
+  resources :books, only: [:index, :edit, :update]
   resources :skills, only: [:index, :edit, :update]
 
 end

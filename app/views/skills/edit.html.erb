@@ -1,2 +1,33 @@
-<h1>Skills#edit</h1>
-<p>Find me in app/views/skills/edit.html.erb</p>
+<section class="form">
+
+    <div class="form-header">
+        <p>Edit <%= @skill.name %></p>
+    </div>
+
+    <%= form_for @skill do |f| %>
+
+        <div class="form-field">
+            <%= f.text_field :name, class: "form-input text", autofocus: true %>
+            <p class="form-label">Name</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :attr, class: "form-input text", autofocus: true %>
+            <p class="form-label">Attribute</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_area :description, class: "form-input long-text" %>
+            <p class="form-label">Description</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :type_of, class: "form-input text", autofocus: true %>
+            <p class="form-label">Type</p>
+        </div>
+
+        <%= f.submit "Save", class: "button form-button success" %>
+
+    <% end %>
+
+</section>

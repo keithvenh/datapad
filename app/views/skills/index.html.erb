@@ -1,0 +1,17 @@
+<section>
+
+    <div class="section-header">
+        <p>SKILLS</p>
+    </div>
+
+    <ul>
+    
+        <% @skills.each do |skill| %>
+    
+            <li class="admin-primary"><%= link_to(skill.name, edit_skill_path(skill)) %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>
