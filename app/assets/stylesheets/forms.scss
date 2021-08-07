@@ -38,6 +38,7 @@ form {
     padding: 6px;
     &.long-text {
         height: 150px;
+        border: 1px solid $white;
     }
 }
 

@@ -1,2 +1,56 @@
-<h1>Talents#edit</h1>
-<p>Find me in app/views/talents/edit.html.erb</p>
+<section class="form">
+
+    <div class="form-header">
+        <p>Edit <%= @talent.name %></p>
+    </div>
+
+    <%= form_for @talent do |f| %>
+
+        <div class="form-field">
+            <%= f.text_field :name, class: "form-input text", autofocus: true %>
+            <p class="form-label">Name</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :activation_type, class: "form-input text", autofocus: true %>
+            <p class="form-label">Activation Type</p>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :active,  class: "boolean"%> Active?</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :force,  class: "boolean"%> Force Only?</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :ranked,  class: "boolean"%> Ranked?</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_area :shortDesc, class: "form-input long-text" %>
+            <p class="form-label">Short Description</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_area :longDesc, class: "form-input long-text" %>
+            <p class="form-label">Long Description</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.collection_select(:book_id, Book.all, :id, :title, {prompt: ""}, {class: "form-input select"}) %>
+            <p class="form-label">Book</p>
+        </div>
+
+        <%= f.submit "Save", class: "button form-button success" %>
+
+    <% end %>
+
+</section>

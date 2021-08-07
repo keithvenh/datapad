@@ -1,0 +1,17 @@
+<section>
+
+    <div class="section-header">
+        <p>TALENTS</p>
+    </div>
+
+    <ul>
+    
+        <% @talents.each do |talent| %>
+    
+            <li class="admin-primary"><%= link_to(talent.name, edit_talent_path(talent)) %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>
