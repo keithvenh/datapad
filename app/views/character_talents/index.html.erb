@@ -1,2 +1,44 @@
-<h1>CharacterTalents#index</h1>
-<p>Find me in app/views/character_talents/index.html.erb</p>
+<section>
+
+    <div class="section-header">
+        <p class="sw"><%= @character.name %></p>
+    </div>
+    <div class=" profile">
+
+        <div class="profile-image">
+
+            <%= image_tag("characters/#{@character.name.split(' ').join('_').downcase}.jpg", class: "profile-image") %>
+
+        </div>
+
+        <div class="profile-details">
+
+            <p class="sw profile-name"><%= link_to(@character.name, character_path(@character)) %></p>
+
+            <p class="profile-race"><%= @character.species %></p>
+
+            <p class="profile-career"><%= @character.career.name %></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="section-header">
+        <p>Select New Talent For <%= @character.name %></p>
+    </div>
+
+    <ul>
+    
+        <% @talents.each do |talent| %>
+    
+            <li class="admin-primary"><%= link_to(talent.name, new_character_character_talent_path(@character)+"?talent_id=#{talent.id}") %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>

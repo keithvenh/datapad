@@ -1,2 +1,33 @@
-<h1>CharacterTalents#new</h1>
-<p>Find me in app/views/character_talents/new.html.erb</p>
+<section class="form">
+
+    <div class="form-header">
+        <p class="sw">New Talent for <%= @character.name %></p>
+    </div>
+
+    <%= form_for [@character, @character_talent] do |f| %>
+
+        <%= f.hidden_field :character_id, value: @character.id %>
+
+        <%= f.hidden_field :talent_id, value: @talent.id %>
+
+        <div class="form-field">
+            <p class="form-input"><%= @talent.name %></p>
+            <p class="form-label">Talent</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.number_field :ranks, value: 1, class: "form-input integer" %>
+            <p class="form-label">Ranks</p>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :purchased,  class: "boolean"%> Purchased?</p>
+            </div>
+        </div>
+
+        <%= f.submit "Submit", class: "button form-button success" %>
+
+    <% end %>
+
+</section>

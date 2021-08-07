@@ -51,6 +51,7 @@
                 <% if @character.force_rating > 0 %>
                     <li><%= link_to("New Force Power", new_character_character_force_power_path(@character)) %></li>
                 <% end %>
+                <li><%= link_to("New Unique Talent", character_character_talents_path(@character)) %></li>
 
             </ul>
 
