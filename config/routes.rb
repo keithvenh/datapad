@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     resources :force_power_upgrades, only: [:index, :edit, :update, :destroy]
   end
 
-  resources :careers, only: [:index, :edit, :update, :destroy, :show] do
-    resources :career_skills, only: [:index, :edit, :update, :destroy]
+  resources :careers, only: [:index, :edit, :update, :show] do
+    resources :career_skills, only: [:index, :edit, :update]
   end
 
   resources :talents, only: [:index, :edit, :update, :destroy]

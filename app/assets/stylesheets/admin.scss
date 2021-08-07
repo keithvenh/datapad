@@ -22,3 +22,13 @@
         }
     }
 }
+
+.admin-primary {
+    padding: 6px 12px;
+    a {
+        opacity: 0.5;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

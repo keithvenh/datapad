@@ -1,2 +1,28 @@
-<h1>Careers#show</h1>
-<p>Find me in app/views/careers/show.html.erb</p>
+<section>
+
+    <div class="section-header">
+        <p>
+            <%= @career.name.upcase %>
+
+            <span class="right">
+            
+                <%= link_to edit_career_path(@career) do %>
+                    <i class="fas fa-edit"></i>
+                <% end %>
+
+            </span>
+        </p>
+
+    </div>
+
+    <ul>
+    
+        <% @career.career_skills.each do |skill| %>
+    
+            <li class="admin-primary"><%= link_to(skill.skill.name, edit_career_career_skill_path(@career, skill)) %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>

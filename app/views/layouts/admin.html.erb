@@ -6,6 +6,26 @@
   <body class="<%= controller_name %> <%= action_name %>">
 
     <div class="datapad admin" id="datapad">
+
+      <nav class="navbar">
+
+        <ul class="nav-links">
+
+          <li class="link">
+              <%= link_to root_url do %>
+                  <i class="fas fa-home"></i> HOME
+              <% end %>
+          </li>
+
+          <li class="link">
+              <%= link_to admin_path do %>
+                  <i class="fas fa-key"></i> ADMINLAND
+              <% end %>
+          </li>
+
+        </ul>
+
+      </nav>      
       
       <%= yield %>
 

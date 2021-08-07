@@ -1,2 +1,23 @@
-<h1>Careers#edit</h1>
-<p>Find me in app/views/careers/edit.html.erb</p>
+<section class="form">
+
+    <div class="form-header">
+        <p>Edit <%= @career.name %> Career</p>
+    </div>
+
+    <%= form_for @career do |f| %>
+
+        <div class="form-field">
+            <%= f.text_field :name, class: "form-input text", autofocus: true %>
+            <p class="form-label">Name</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.collection_select(:book_id, Book.all, :id, :title, {prompt: ""}, {class: "form-input select"}) %>
+            <p class="form-label">Book</p>
+        </div>
+
+        <%= f.submit "Save", class: "button form-button success" %>
+
+    <% end %>
+
+</section>

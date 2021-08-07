@@ -1,0 +1,17 @@
+<section>
+
+    <div class="section-header">
+        <p>CAREERS</p>
+    </div>
+
+    <ul>
+    
+        <% @careers.each do |career| %>
+    
+            <li class="admin-primary"><%= link_to(career.name, career_path(career)) %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>
