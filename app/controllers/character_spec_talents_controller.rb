@@ -29,11 +29,20 @@ class CharacterSpecTalentsController < ApplicationController
   end
 
   def add_character_talent(character, talent)
-    CharacterTalent.create!(
-      character: character,
-      talent: talent,
-      purchased: true
-    )
+
+    if CharacterTalent.exists?(character: character, talent:talent)
+      t = CharacterTalent.find_by(character: character, talent: talent)
+      t.ranks += 1
+      t.save!
+    else
+      CharacterTalent.create!(
+        character: character,
+        talent: talent,
+        purchased: true,
+        ranks: 1
+      )
+    end
+
   end
 
 end

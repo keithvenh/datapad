@@ -166,16 +166,17 @@
                 <p>Talents</p>
             </div>
 
-            <% talents = @character.character_spec_talents %>
+            <% talents = @character.character_talents %>
 
             <ul>
 
                 <% talents.each do |talent| %>
 
                     <% if talent.purchased %>
-                        <% t = talent.specialization_talent.talent%>
+                        <% t = talent.talent%>
                         <li class="character-talent">
                             <h3 class="character-talent-name"><%= t.name %></h3>
+                            <% if t.ranked %><p class="character-talent-rank">RANKS: <span class='integer'><%= talent.ranks %></span></p><% end %>
                             <p class="character-talent-desc"><%= replace_dice(t.shortDesc) %></p>
                         </li>
                     <% end %>

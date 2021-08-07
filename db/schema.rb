@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_06_211733) do
+ActiveRecord::Schema.define(version: 2021_08_07_174619) do
 
   create_table "books", force: :cascade do |t|
     t.string "game"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 2021_08_06_211733) do
     t.boolean "purchased"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "ranks"
     t.index ["character_id"], name: "index_character_talents_on_character_id"
     t.index ["talent_id"], name: "index_character_talents_on_talent_id"
   end
