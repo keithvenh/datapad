@@ -36,6 +36,9 @@ form {
     color: $white;
     font-size: 1.1em;
     padding: 6px;
+    &.long-text {
+        height: 150px;
+    }
 }
 
 .form-label {

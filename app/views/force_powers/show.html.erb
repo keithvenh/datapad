@@ -1,2 +1,28 @@
-<h1>ForcePowers#show</h1>
-<p>Find me in app/views/force_powers/show.html.erb</p>
+<section>
+
+    <div class="section-header">
+        <p>
+            <%= @force_power.name.upcase %>
+
+            <span class="right">
+            
+                <%= link_to edit_force_power_path(@force_power) do %>
+                    <i class="fas fa-edit"></i>
+                <% end %>
+
+            </span>
+        </p>
+
+    </div>
+
+    <ul>
+    
+        <% @force_power.force_power_upgrades.each do |upgrade| %>
+    
+            <li class="admin-primary"><%= link_to(upgrade.name, edit_force_power_force_power_upgrade_path(@force_power, upgrade)) %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>

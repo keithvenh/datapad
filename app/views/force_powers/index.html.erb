@@ -1,0 +1,17 @@
+<section>
+
+    <div class="section-header">
+        <p>FORCE POWERS</p>
+    </div>
+
+    <ul>
+    
+        <% @force_powers.each do |force_power| %>
+    
+            <li class="admin-primary"><%= link_to(force_power.name, force_power_path(force_power)) %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>
