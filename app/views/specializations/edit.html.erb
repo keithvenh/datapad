@@ -1,2 +1,28 @@
-<h1>Specializations#edit</h1>
-<p>Find me in app/views/specializations/edit.html.erb</p>
+<section class="form">
+
+    <div class="form-header">
+        <p>Edit <%= @specialization.name %> Specialization</p>
+    </div>
+
+    <%= form_for @specialization do |f| %>
+
+        <div class="form-field">
+            <%= f.text_field :name, class: "form-input text", autofocus: true %>
+            <p class="form-label">Name</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.collection_select(:career_id, Career.all.order(:name), :id, :name, {prompt: ""}, {class: "form-input select"}) %>
+            <p class="form-label">Career</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.collection_select(:book_id, Book.all.order(:title), :id, :title, {prompt: ""}, {class: "form-input select"}) %>
+            <p class="form-label">Book</p>
+        </div>
+
+        <%= f.submit "Save", class: "button form-button success" %>
+
+    <% end %>
+
+</section>

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :character_force_power_upgrades, only: [:edit, :update]
   end
 
-  resources :specializations, only: [:index, :edit, :update, :detroy, :show] do 
+  resources :specializations, only: [:index, :edit, :update, :show] do 
     resources :specialization_talents, only: [:index, :edit, :update, :destroy]
     resources :specialization_skills, only: [:index, :edit, :update, :destroy]
   end

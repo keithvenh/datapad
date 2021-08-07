@@ -1,2 +1,46 @@
-<h1>Specializations#show</h1>
-<p>Find me in app/views/specializations/show.html.erb</p>
+<section>
+
+    <div class="section-header">
+        <p>
+            <%= @specialization.name.upcase %>
+
+            <span class="right">
+            
+                <%= link_to edit_specialization_path(@specialization) do %>
+                    <i class="fas fa-edit"></i>
+                <% end %>
+
+            </span>
+        </p>
+
+    </div>
+
+    <div class="subsection-header">
+        <p>Skills</p>
+    </div>
+
+    <ul>
+    
+        <% @specialization.specialization_skills.each do |skill| %>
+    
+            <li class="admin-primary"><%= link_to(skill.skill.name, edit_specialization_specialization_skill_path(@specialization, skill)) %></li>
+
+        <% end %>
+
+    </ul>
+
+    <div class="subsection-header">
+        <p>Talents</p>
+    </div>
+
+    <ul>
+    
+        <% @specialization.specialization_talents.each do |talent| %>
+    
+            <li class="admin-primary"><%= link_to(talent.talent.name, edit_specialization_specialization_talent_path(@specialization, talent)) %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>

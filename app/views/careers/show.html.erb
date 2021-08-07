@@ -15,11 +15,29 @@
 
     </div>
 
+    <div class="subsection-header">
+        <p>Skills</p>
+    </div>
+
     <ul>
     
         <% @career.career_skills.each do |skill| %>
     
             <li class="admin-primary"><%= link_to(skill.skill.name, edit_career_career_skill_path(@career, skill)) %></li>
+
+        <% end %>
+
+    </ul>
+
+    <div class="subsection-header">
+        <p>Specializations</p>
+    </div>
+
+    <ul>
+    
+        <% @career.specializations.each do |spec| %>
+    
+            <li class="admin-primary"><%= link_to(spec.name, specialization_path(spec)) %></li>
 
         <% end %>
 

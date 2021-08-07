@@ -8,9 +8,17 @@
     padding: 4px;
 }
 
-.section-header .right {
+.section-header .right, .subsection-header .right {
     float: right;
     .fa-edit {
         color: $yellow;
     }
+}
+
+.subsection-header {
+    border: 1px solid $white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px;
+    margin: 12px 0;
 }

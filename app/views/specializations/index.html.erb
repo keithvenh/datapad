@@ -1,0 +1,17 @@
+<section>
+
+    <div class="section-header">
+        <p>SPECIALIZATIONS</p>
+    </div>
+
+    <ul>
+    
+        <% @specializations.each do |spec| %>
+    
+            <li class="admin-primary"><%= link_to(spec.name, specialization_path(spec)) %></li>
+
+        <% end %>
+
+    </ul>
+
+</section>
