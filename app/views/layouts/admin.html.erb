@@ -25,7 +25,13 @@
 
         </ul>
 
-      </nav>      
+      </nav>    
+
+      <% flash.each do |type, msg| %>
+        <p class='alert alert-<%= type %>'>
+          <%= msg %>
+        </p>
+      <% end %>  
       
       <%= yield %>
 
