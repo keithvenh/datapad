@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     resources :specialization_skills, only: [:index, :edit, :update, :destroy]
   end
 
-  resources :force_powers, only: [:index, :edit, :update, :destroy, :show] do
-    resources :force_power_upgrades, only: [:index, :edit, :update, :destroy]
+  resources :force_powers, only: [:index, :edit, :update, :show] do
+    resources :force_power_upgrades, only: [:edit, :update]
   end
 
   resources :careers, only: [:index, :edit, :update, :show] do

@@ -1,2 +1,105 @@
-<h1>ForcePowerUpgrades#edit</h1>
-<p>Find me in app/views/force_power_upgrades/edit.html.erb</p>
+<section class="form">
+
+    <div class="form-header">
+        <p>Edit <%= @force_power_upgrade.name %> for <%= @force_power.name %></p>
+    </div>
+
+    <%= form_for [@force_power, @force_power_upgrade] do |f| %>
+
+        <%= f.hidden_field :force_power_id, value: @force_power.id %>
+
+        <div class="form-field">
+            <%= f.text_field :name, class: "form-input text", autofocus: true %>
+            <p class="form-label">Name</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :cost, class: "form-input integer" %>
+            <p class="form-label">Cost</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :row, class: "form-input integer" %>
+            <p class="form-label">Row</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :colStart, class: "form-input integer" %>
+            <p class="form-label">colStart</p>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_field :colSpan, class: "form-input integer" %>
+            <p class="form-label">colSpan</p>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :upLink1,  class: "boolean"%> Up Link 1</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :upLink2,  class: "boolean"%> Up Link 2</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :upLink3,  class: "boolean"%> Up Link 3</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :upLink4,  class: "boolean"%> Up Link 4</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :downLink1,  class: "boolean"%> Down Link 1</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :downLink2,  class: "boolean"%> Down Link 2</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :downLink3,  class: "boolean"%> Down Link 3</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :downLink4,  class: "boolean"%> Down Link 4</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :leftLink,  class: "boolean"%> Left Link</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <div class="checkbox">
+            <p class="form-label"><%= f.check_box :rightLink,  class: "boolean"%> Right Link</p>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <%= f.text_area :description, class: "form-input long-text" %>
+            <p class="form-label">Description</p>
+        </div>
+
+        <%= f.submit "Save", class: "button form-button success" %>
+
+    <% end %>
+
+</section>
