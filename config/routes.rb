@@ -16,20 +16,20 @@ Rails.application.routes.draw do
     resources :character_force_power_upgrades, only: [:edit, :update]
   end
 
-  resources :specializations, only: [:edit, :update, :detroy, :show] do 
-    resources :specialization_talents, only: [:edit, :update, :destroy]
-    resources :specialization_skills, only: [:edit, :update, :destroy]
+  resources :specializations, only: [:index, :edit, :update, :detroy, :show] do 
+    resources :specialization_talents, only: [:index, :edit, :update, :destroy]
+    resources :specialization_skills, only: [:index, :edit, :update, :destroy]
   end
 
-  resources :force_powers, only: [:edit, :update, :destroy, :show] do
-    resources :force_power_upgrades, only: [:edit, :update, :destroy]
+  resources :force_powers, only: [:index, :edit, :update, :destroy, :show] do
+    resources :force_power_upgrades, only: [:index, :edit, :update, :destroy]
   end
 
-  resources :careers, only: [:edit, :update, :destroy, :show] do
-    resources :career_skills, only: [:edit, :update, :destroy]
+  resources :careers, only: [:index, :edit, :update, :destroy, :show] do
+    resources :career_skills, only: [:index, :edit, :update, :destroy]
   end
 
-  resources :talents, only: [:edit, :update, :destroy]
+  resources :talents, only: [:index, :edit, :update, :destroy]
   resources :books, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :skills, only: [:index, :edit, :update, :destroy]
 
