@@ -1,2 +1,20 @@
-<h1>SpecializationSkills#edit</h1>
-<p>Find me in app/views/specialization_skills/edit.html.erb</p>
+<section class="form">
+
+    <div class="form-header">
+        <p>Edit <%= @specialization_skill.skill.name %> for <%= @specialization_skill.specialization.name %></p>
+    </div>
+
+    <%= form_for [@specialization, @specialization_skill] do |f| %>
+
+        <%= f.hidden_field :specialization_id, value: @specialization.id %>
+
+        <div class="form-field">
+            <%= f.collection_select(:skill_id, Skill.all.order(:name), :id, :name, {prompt: ""}, {class: "form-input select"}) %>
+            <p class="form-label">Skill</p>
+        </div>
+
+        <%= f.submit "Save", class: "button form-button success" %>
+
+    <% end %>
+
+</section>
