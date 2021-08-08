@@ -113,7 +113,7 @@
 
         <div class="row">
 
-            <% row2 = @character_force_power.force_power.force_power_upgrades.where(row: 2) %>
+            <% row2 = @character_force_power.force_power.force_power_upgrades.where(row: 2).order(:colStart) %>
 
             <% row2.each do |upgrade| %>
 
@@ -196,7 +196,7 @@
 
         <div class="row">
 
-            <% row3 = @character_force_power.force_power.force_power_upgrades.where(row: 3) %>
+            <% row3 = @character_force_power.force_power.force_power_upgrades.where(row: 3).order(:colStart) %>
 
             <% row3.each do |upgrade| %>
 
@@ -279,7 +279,7 @@
 
         <div class="row">
 
-            <% row4 = @character_force_power.force_power.force_power_upgrades.where(row: 4) %>
+            <% row4 = @character_force_power.force_power.force_power_upgrades.where(row: 4).order(:colStart) %>
 
             <% row4.each do |upgrade| %>
 
@@ -362,7 +362,7 @@
 
         <div class="row">
 
-            <% row5 = @character_force_power.force_power.force_power_upgrades.where(row: 5) %>
+            <% row5 = @character_force_power.force_power.force_power_upgrades.where(row: 5).order(:colStart) %>
 
             <% row5.each do |upgrade| %>
 
