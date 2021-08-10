@@ -8,6 +8,7 @@ class CharacterSpecTalentsController < ApplicationController
   def update
     @character = find_character
     @character_spec_talent = CharacterSpecTalent.find(params[:id])
+    @character_specialization = CharacterSpecialization.find_by(character: @character, specialization: @character_spec_talent.specialization_talent.specialization)
 
     if @character_spec_talent.purchased 
       puts "-"*40
@@ -16,7 +17,7 @@ class CharacterSpecTalentsController < ApplicationController
       if character_spec_talent_params[:purchased] == '1'
         if @character_spec_talent.update(character_spec_talent_params)
           flash[:notice] = "You have successfully updated #{@character_spec_talent.specialization_talent.talent.name} for #{@character.name}"
-          redirect_to @character
+          redirect_to character_character_specialization_path(@character, @character_specialization)
         end
       else
         puts "-"*40
@@ -28,10 +29,10 @@ class CharacterSpecTalentsController < ApplicationController
           if character_talent.ranks <= 0 && @character_spec_talent.update(character_spec_talent_params)
             character_talent.destroy
             flash[:alert] = "You have successfully deleted #{@character_spec_talent.specialization_talent.talent.name} for #{@character.name}."
-            redirect_to @character
+            redirect_to character_character_specialization_path(@character, @character_specialization)
           elsif character_talent.save! && @character_spec_talent.update(character_spec_talent_params)
             flash[:notice] = "You have successfully updated #{@character_spec_talent.specialization_talent.talent.name} for #{@character.name}"
-            redirect_to @character
+            redirect_to character_character_specialization_path(@character, @character_specialization)
           else
             flash.now[:alert] = "Beep Boop. Something went wrong."
             render 'edit'
@@ -40,7 +41,7 @@ class CharacterSpecTalentsController < ApplicationController
           character_talent = CharacterTalent.find_by(charactre: @character, talent: @character_spec_talent.specialization_talent.talent)
           character_talent.destroy
           flash.now[:alert] = "You have successfully deleted #{@character_spec_talent.specialization_talent.talent.name} for #{@character.name}."
-          redirect_to @character
+          redirect_to character_character_specialization_path(@character, @character_specialization)
         end
       end
     else
@@ -50,13 +51,13 @@ class CharacterSpecTalentsController < ApplicationController
           character_talent.ranks += 1
           if character_talent.save! && @character_spec_talent.update(character_spec_talent_params)
             flash[:notice] = "You have successfully updated #{@character_spec_talent.specialization_talent.talent.name} for #{@character.name}"
-            redirect_to @character
+            redirect_to character_character_specialization_path(@character, @character_specialization)
           end
         else
           add_character_talent(@character, @character_spec_talent.specialization_talent.talent)
           if @character_spec_talent.update(character_spec_talent_params)
             flash[:notice] = "You have successfully updated #{@character_spec_talent.specialization_talent.talent.name} for #{@character.name}"
-            redirect_to @character
+            redirect_to character_character_specialization_path(@character, @character_specialization)
           end
         end
       end
