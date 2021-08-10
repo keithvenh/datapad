@@ -246,3 +246,22 @@
     </section>
 
 <% end %>
+
+<section>
+
+    <div class="section-header">
+        <p>Links</p>
+    </div>
+
+    <div class="character-links">
+
+        <ul>
+            <li><i class="fas fa-edit"></i> <%= link_to("Edit #{@character.name}", edit_character_path(@character)) %></li>
+            <li><i class="fas fa-plus"></i> <%= link_to("New Force Power", new_character_character_force_power_path(@character)) %></li>
+            <li><i class="fas fa-plus"></i> <%= link_to("New Specialization", new_character_character_specialization_path(@character)) %></li>
+            <li><i class="fas fa-plus"></i> <%= link_to("New Talent", new_character_character_talent_path(@character)) %></li>
+        </ul>
+
+    </div>
+
+</section>
