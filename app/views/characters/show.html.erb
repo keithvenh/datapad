@@ -29,7 +29,7 @@
 
                     <% @character.character_specializations.each do |char_spec| %>
 
-                        <p class="profile-specialization"><%= char_spec.specialization.name %></p>
+                        <p class="profile-specialization"><%= link_to(char_spec.specialization.name, character_character_specialization_path(@character, char_spec)) %></p>
 
                     <% end %>
 
@@ -259,7 +259,7 @@
             <li><i class="fas fa-edit"></i> <%= link_to("Edit #{@character.name}", edit_character_path(@character)) %></li>
             <li><i class="fas fa-plus"></i> <%= link_to("New Force Power", new_character_character_force_power_path(@character)) %></li>
             <li><i class="fas fa-plus"></i> <%= link_to("New Specialization", new_character_character_specialization_path(@character)) %></li>
-            <li><i class="fas fa-plus"></i> <%= link_to("New Talent", new_character_character_talent_path(@character)) %></li>
+            <li><i class="fas fa-plus"></i> <%= link_to("New Talent", character_character_talents_path(@character)) %></li>
         </ul>
 
     </div>
