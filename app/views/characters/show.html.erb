@@ -1,12 +1,7 @@
 <section>
 
-    <div class="section-header">
-        <p class="sw"><%= @character.name %></p>
-    </div>
-
-    <div class="columns">
-
-        <div class="col1 profile">
+    <div class="section-header character-header">
+        <div class="profile">
 
             <div class="profile-image">
 
@@ -18,24 +13,25 @@
 
                 <p class="sw profile-name"><%= link_to(@character.name, edit_character_path(@character)) %></p>
 
-                <p class="profile-position">
-                    <% if @character.name == "Pax Kal-Yuri" || @character.name == "Ajairu Kogiti" %>
-                        Co-Founder
+                <% if @character.role %>
+                    <p class="profile-role"><%= @character.role %></p>
+                <% end %>
+
+                <% if @character.species %>
+                    <p class="profile-species"><%= @character.species %></p>
+                <% end %>
+
+                <% if @character.career %>
+                    <p class="profile-role"><%= @character.career.name %></p>
+                <% end %>
+
+                <% if @character.character_specializations.count > 0 %>
+
+                    <% @character.character_specializations.each do |char_spec| %>
+
+                        <p class="profile-specialization"><%= char_spec.specialization.name %></p>
+
                     <% end %>
-                </p>
-
-                <p class="profile-race"><%= @character.species %></p>
-
-                <p class="profile-career"><%= @character.career.name %></p>
-
-                <% specs = [] %>
-                <% @character.character_specializations.each do |char_spec| %>
-
-                    <p class="profile-specializations">
-
-                        <%= link_to(char_spec.specialization.name, character_character_specialization_path(@character, char_spec)) %>
-
-                    </p>
 
                 <% end %>
 
@@ -43,52 +39,86 @@
 
         </div>
 
-        <div class="col2">
-
-            <ul class="character-links">
-
-                <li><%= link_to("New Specialization", new_character_character_specialization_path(@character)) %></li>
-                <% if @character.force_rating > 0 %>
-                    <li><%= link_to("New Force Power", new_character_character_force_power_path(@character)) %></li>
-                <% end %>
-                <li><%= link_to("New Unique Talent", character_character_talents_path(@character)) %></li>
-
-            </ul>
-
-        </div>
-
     </div>
 
     <div class="attributes">
 
+        <div class='attr soak'>
+            <p class='attr-label'>Soak</p>
+            <div class="integer attr-ranks"><p><%= @character.soak %></p></div>
+            <p class='attr-label'>Value</p>
+        </div>
+
         <div class='attr wound-threshold'>
-            <p class='attr-label'>Wound Threshold</p>
-            <p class='integer attr-ranks'><%= @character.wounds %></p>
+            <p class='attr-label'>Wound</p>
+            <div class="integer attr-ranks"><p><%= @character.wounds %></p></div>
+            <p class='attr-label'>Threshold</p>
         </div>
 
         <div class='attr strain-threshold'>
-            <p class='attr-label'>Strain Threshold</p>
-            <p class='integer attr-ranks'><%= @character.strain %></p>
-        </div>
-
-        <div class='attr force-rating'>
-            <p class='attr-label'>Force Rating</p>
-            <p class='integer attr-ranks'><%= @character.force_rating %></p>
-        </div>
-
-        <div class='attr soak'>
-            <p class='attr-label'>Soak</p>
-            <p class='integer attr-ranks'><%= @character.soak %></p>
+            <p class='attr-label'>Strain</p>
+            <div class="integer attr-ranks"><p><%= @character.strain %></p></div>
+            <p class='attr-label'>Threshold</p>
         </div>
 
         <div class='attr ranged-defense'>
-            <p class='attr-label'>Melee Defense</p>
-            <p class='integer attr-ranks'><%= @character.def_melee %></p>
+            <p class='attr-label'>Melee</p>
+            <div class="integer attr-ranks"><p><%= @character.def_melee %></p></div>
+            <p class='attr-label'>Defense</p>
         </div>
 
         <div class='attr wound-threshold'>
-            <p class='attr-label'>Ranged Defense</p>
-            <p class='integer attr-ranks'><%= @character.def_ranged %></p>
+            <p class='attr-label'>Ranged</p>
+            <div class="integer attr-ranks"><p><%= @character.def_ranged %></p></div>
+            <p class='attr-label'>Defense</p>
+        </div>
+
+        <div class='attr force-rating'>
+            <p class='attr-label'>Force</p>
+            <div class="integer attr-ranks"><p><%= @character.force_rating %></p></div>
+            <p class='attr-label'>Rating</p>
+        </div>       
+
+    </div>
+
+</section>   
+
+<section>
+
+    <div class="section-header">
+        <p>Skills</p>
+    </div>
+
+    <div class='attributes'>
+
+        <div class='attr brawn' id="brawn">
+            <p class='integer attr-ranks'><%= @character.brawn %></p>
+            <p class='attr-label'>Brawn</p>
+        </div>
+
+        <div class='attr agility' id="agility">
+            <p class='integer attr-ranks'><%= @character.agility %></p>
+            <p class='attr-label'>Agility</p>
+        </div>
+
+        <div class='attr intellect' id='intellect'>
+            <p class='integer attr-ranks'><%= @character.intellect %></p>
+            <p class='attr-label'>Intellect</p>
+        </div>
+
+        <div class='attr cunning' id='cunning'>
+            <p class='integer attr-ranks'><%= @character.cunning %></p>
+            <p class='attr-label'>Cunning</p>
+        </div>
+
+        <div class='attr willpower' id='willpower'>
+            <p class='integer attr-ranks'><%= @character.willpower %></p>
+            <p class='attr-label'>Willpower</p>
+        </div>
+
+        <div class='attr presence' id='presence'>
+            <p class='integer attr-ranks'><%= @character.presence %></p>
+            <p class='attr-label'>Presence</p>
         </div>
 
     </div>
@@ -97,56 +127,13 @@
 
         <div class="col1">
 
-            <div class="column-header">
-                <p>Skills</p>
-            </div>
-
-            <div class='attributes'>
-
-                <div class='attr brawn' id="brawn">
-                    <p class='attr-label'>Brawn</p>
-                    <p class='integer attr-ranks'><%= @character.brawn %></p>
-                </div>
-
-                <div class='attr agility' id="agility">
-                    <p class='attr-label'>Agility</p>
-                    <p class='integer attr-ranks'><%= @character.agility %></p>
-                </div>
-
-                <div class='attr intellect' id='intellect'>
-                    <p class='attr-label'>Intellect</p>
-                    <p class='integer attr-ranks'><%= @character.intellect %></p>
-                </div>
-
-                <div class='attr cunning' id='cunning'>
-                    <p class='attr-label'>Cunning</p>
-                    <p class='integer attr-ranks'><%= @character.cunning %></p>
-                </div>
-
-                <div class='attr willpower' id='willpower'>
-                    <p class='attr-label'>Willpower</p>
-                    <p class='integer attr-ranks'><%= @character.willpower %></p>
-                </div>
-
-                <div class='attr presence' id='presence'>
-                    <p class='attr-label'>Presence</p>
-                    <p class='integer attr-ranks'><%= @character.presence %></p>
-                </div>
-
-            </div>
-
             <div class="skills-list">
 
-                <% category = '' %>
-                <% @character.skills.each do |skill| %>
+                <p class="sw segmentor">General</p>
+
+                <% @character.skills.where(type_of: "General").order(:name).each do |skill| %>
 
                     <% character_skill = @character.character_skills.find_by(skill: skill) %>
-                    <% if skill.type_of != category %>
-
-                        <% category = skill.type_of %>
-                        <p class="sw segmentor"><%= category %></p>
-
-                    <% end %>
 
                     <div class="skill <%= skill.attr.downcase %>">
                         <p class="skill-name">
@@ -161,52 +148,101 @@
 
         </div>
 
-        <div class='col2'>
+        <div class="col2">
 
-            <div class="column-header">
-                <p>Talents</p>
-            </div>
+            <div class="skills-list">
 
-            <% talents = @character.character_talents.includes(:talent).order("talents.name") %>
+                <p class="sw segmentor">Combat</p>
 
-            <ul>
+                <% @character.skills.where(type_of: "Combat").order(:name).each do |skill| %>
 
-                <% talents.each do |talent| %>
+                    <% character_skill = @character.character_skills.find_by(skill: skill) %>
 
-                    <% if talent.purchased %>
-                        <% t = talent.talent%>
-                        <li class="character-talent">
-                            <h3 class="character-talent-name"><%= t.name %></h3>
-                            <% if t.ranked %><p class="character-talent-rank">RANKS: <span class='integer'><%= talent.ranks %></span></p><% end %>
-                            <p class="character-talent-desc"><%= replace_dice(t.shortDesc) %></p>
-                        </li>
-                    <% end %>
+                    <div class="skill <%= skill.attr.downcase %>">
+                        <p class="skill-name">
+                            <%= character_skill.career ? "&#9865".html_safe : '' %> <%= link_to skill.name, edit_character_character_skill_path(@character, character_skill)%>
+                        </p>
+                        <%= display_level(character_skill.ranks) %>
+                    </div>
 
                 <% end %>
 
-            </ul>
+            </div>
 
-            <% if @character.force_rating > 0 %>
-                <div class="column-header">
-                    <p>Force Powers</p>
-                </div>
+            <div class="skills-list">
 
-                <% powers = @character.character_force_powers.includes(:force_power).order("force_powers.name") %>
+                <p class="sw segmentor">Knowledge</p>
 
-                <ul>
+                <% @character.skills.where(type_of: "Knowledge").order(:name).each do |skill| %>
 
-                    <% powers.each do |power| %>
-                        <% fp = power.force_power%>
-                        <li class="character-talent">
-                            <h3 class="character-talent-name"><%= link_to(fp.name, character_character_force_power_path(@character, power)) %></h3>
-                            <p class="character-talent-desc"><%= replace_dice(fp.description) %></p>
-                        </li>
-                    <% end %>
+                    <% character_skill = @character.character_skills.find_by(skill: skill) %>
 
-                </ul>
-            <% end %>
+                    <div class="skill <%= skill.attr.downcase %>">
+                        <p class="skill-name">
+                            <%= character_skill.career ? "&#9865".html_safe : '' %> <%= link_to skill.name, edit_character_character_skill_path(@character, character_skill)%>
+                        </p>
+                        <%= display_level(character_skill.ranks) %>
+                    </div>
+
+                <% end %>
+
+            </div>        
+
         </div>
 
     </div>
 
 </section>
+
+<section>
+
+    <div class="section-header">
+        <p>Talents</p>
+    </div>
+
+    <% talents = @character.character_talents.includes(:talent).order("talents.name") %>
+
+    <ul>
+
+        <% talents.each do |talent| %>
+
+            <% if talent.purchased %>
+                <% t = talent.talent%>
+                <li class="character-talent">
+                    <h3 class="character-talent-name"><%= t.name %></h3>
+                    <% if t.ranked %><p class="character-talent-rank">RANKS: <span class='integer'><%= talent.ranks %></span></p><% end %>
+                    <p class="character-talent-desc"><%= replace_dice(t.shortDesc) %></p>
+                </li>
+            <% end %>
+
+        <% end %>
+
+    </ul>
+
+</section>
+
+<% if @character.force_rating > 0 %>
+
+    <section>
+
+        <div class="section-header">
+            <p>Force Powers</p>
+        </div>
+
+        <% powers = @character.character_force_powers.includes(:force_power).order("force_powers.name") %>
+
+        <ul>
+
+            <% powers.each do |power| %>
+                <% fp = power.force_power%>
+                <li class="character-talent">
+                    <h3 class="character-talent-name"><%= link_to(fp.name, character_character_force_power_path(@character, power)) %></h3>
+                    <p class="character-talent-desc"><%= replace_dice(fp.description) %></p>
+                </li>
+            <% end %>
+
+        </ul>
+
+    </section>
+
+<% end %>
