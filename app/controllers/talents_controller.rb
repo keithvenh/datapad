@@ -6,6 +6,21 @@ class TalentsController < ApplicationController
     @talents = Talent.all.order(:name)
   end
 
+  def new
+    @talent = Talent.new
+  end
+
+  def create
+    @talent = Talent.new(talent_params)
+    if @talent.save!
+      flash[:notice] = "You have successfully created #{@talent.name}."
+      redirect_to talents_path
+    else
+      flash.now[:alert] = "Beep Boop. Something Went Wrong."
+      render 'new'
+    end
+  end
+
   def edit
     @talent = Talent.find(params[:id])
   end

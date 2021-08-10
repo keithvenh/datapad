@@ -31,9 +31,15 @@
         <p>Select New Talent For <%= @character.name %></p>
     </div>
 
-    <ul>
+    <ul class='admin-talent-list'>
     
+        <% delimeter = '' %>
         <% @talents.each do |talent| %>
+
+            <% if talent.name[0].upcase != delimeter %>
+                <% delimeter = talent.name[0].upcase %>
+                <p class="sw segmentor"><%= delimeter %></p>
+            <% end %>
     
             <li class="admin-primary"><%= link_to(talent.name, new_character_character_talent_path(@character)+"?talent_id=#{talent.id}") %></li>
 
