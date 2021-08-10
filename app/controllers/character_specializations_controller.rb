@@ -14,7 +14,7 @@ class CharacterSpecializationsController < ApplicationController
       flash[:notice] = "You have successfully added #{@character_specialization.specialization.name} to #{@character.name}"
       update_character_career_skills(@character, @character_specialization.specialization)
       add_character_specialization_talents(@character, @character_specialization.specialization)
-      redirect_to character_path(@character)
+      redirect_to character_character_specialization_path(@character, @character_specialization)
     else
       flash.now[:alert] = "Beep Boop. Something went wrong."
       render 'new'
@@ -37,7 +37,7 @@ class CharacterSpecializationsController < ApplicationController
     @character_specialization = CharacterSpecialization.find(params[:id])
     if @character_specialization.update(character_specialization_params)
       flash[:notice] = "You have successfully updated #{@character_specialization.specialization.name} for #{@character.name}."
-      redirect_to character_path(@character)
+      redirect_to character_character_specialization_path(@character, @character_specialization)
     else
       flash.now[:alert] = "Beep Boop. Something went wrong."
       render 'edit'

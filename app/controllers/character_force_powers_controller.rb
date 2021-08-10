@@ -12,7 +12,7 @@ class CharacterForcePowersController < ApplicationController
     if @character_force_power.save!
         flash[:notice] = "You have successfully added #{@character_force_power.force_power.name} to #{@character.name}"
         add_character_force_power_upgrades(@character, @character_force_power.force_power)
-        redirect_to character_path(@character)
+        redirect_to character_character_force_power_path(@character, @character_force_power)
     else
         flash.now[:alert] = "Beep Boop. Something went wrong."
         render 'new'
@@ -35,7 +35,7 @@ class CharacterForcePowersController < ApplicationController
         @character_force_power = CharacterForcePower.find(params[:id])
         if @character_force_power.update(character_force_power_params)
             flash[:notice] = "You have successfully updated #{@character_force_power.force_power.name} for #{@character.name}."
-            redirect_to character_path(@character)
+            redirect_to character_character_force_power_path(@character, @character_force_power)
         else
             flash.now[:alert] = "Beep Boop. Something went wrong."
             render 'edit'

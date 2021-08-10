@@ -234,11 +234,39 @@
         <ul>
 
             <% powers.each do |power| %>
+
                 <% fp = power.force_power%>
+
                 <li class="character-talent">
+
                     <h3 class="character-talent-name"><%= link_to(fp.name, character_character_force_power_path(@character, power)) %></h3>
+
                     <p class="character-talent-desc"><%= replace_dice(fp.description) %></p>
+
+                    <% fp.force_power_upgrades.each do |upgrade| %>
+
+                        <% character_upgrade = CharacterForcePowerUpgrade.find_by(character: @character, force_power_upgrade: upgrade) %>
+
+                        <ul>
+
+                            <% if character_upgrade.purchased == true %>
+
+                                <li class="character-upgrade">
+
+                                    <h3 class="character-upgrade-name"><%= link_to(upgrade.name, character_character_force_power_path(@character, power)) %></h3>
+
+                                    <p class="character-upgrade-desc"><%= replace_dice(upgrade.description) %></p>
+
+                                </li>
+
+                            <% end %>
+
+                        </ul>
+                        
+                    <% end %>
+
                 </li>
+
             <% end %>
 
         </ul>

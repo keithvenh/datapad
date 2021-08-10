@@ -136,10 +136,20 @@
     padding: 6px;
 }
 
+.character-upgrade {
+    padding: 4px 12px;
+}
+
 .character-talent-name {
     font-size: 1em;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.character-upgrade-name {
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .character-talent-rank {
@@ -148,6 +158,12 @@
 }
 
 .character-talent-desc {
+    font-size: 0.8em;
+    padding: 4px 12px;
+    line-height: 1.25em;
+}
+
+.character-upgrade-desc {
     font-size: 0.8em;
     padding: 4px 12px;
     line-height: 1.25em;
